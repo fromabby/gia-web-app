@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
     } else {
         header("Location: new_property.php?error=There is an error");
     }
-}
+} 
 ?>
 <html>
 <style>
@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
     }
 
     input[type=submit]:hover {
-        background-color: #45a049;
+        background-color: hsl(158, 100%, 16%);
     }
 
     .form-container {
@@ -48,15 +48,25 @@ if (isset($_POST["submit"])) {
         background-color: #f2f2f2;
         padding: 20px;
     }
+    .container {
+        border-radius: 5px;
+        
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    h4 {
+        padding-bottom: 14px;
+    }
 </style>
-<div class="container-fluid">
+<div class=" container-fluid">
     <div class="row">
         <?php
         require_once "./components/template/sidebar.php";
         ?>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="container form-container">
-                <h3>Create new property</h3>
+            <div class="container shadow form-container">
+                <h4>Create new property</h4>
 
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
@@ -71,24 +81,35 @@ if (isset($_POST["submit"])) {
                     <label for="location">Location</label>
                     <input type="text" id="location" name="location" placeholder="Location" required>
 
-                    <label for="lotArea">Lot Area</label>
-                    <input type="text" id="lotArea" name="lotArea" placeholder="Lot Area" required>
-
-                    <label for="price">Price</label>
-                    <input type="text" id="price" name="price" placeholder="Price" required>
-
-                    <label for="propertyType">Property Type</label>
-                    <select id="propertyType" name="propertyType" required>
-                        <option value="">-</option>
-                        <option value="Condo">Condo</option>
-                        <option value="TownHouse">Town House</option>
-                        <option value="Mansion">Mansion</option>
-                    </select>
-                    <div class="form-group">
-                        <label for="image">Select image attachment</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                    <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="lotArea">Lot Area</label>
+                        <input type="text" id="lotArea" name="lotArea" placeholder="100 sqm" required>
                     </div>
 
+                    <div class="col-md-4">
+                        <label for="price">Price</label>
+                        <input type="text" id="price" name="price" placeholder="1000000" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="propertyType">Property Type</label>
+                        <select id="propertyType" name="propertyType">
+                            <option value="">-</option>
+                            <option value="Condo">Condo</option>
+                            <option value="TownHouse">Town House</option>
+                            <option value="Mansion">Mansion</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label for="image">Select image attachment</label>
+                        </div>
+                        <div>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                    
+                        </div>
+                    </div>
                     <center><input type="submit" value="Submit" name="submit"></center>
                 </form>
             </div>

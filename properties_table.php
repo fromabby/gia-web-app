@@ -2,6 +2,11 @@
 $title = "Properties";
 require_once "./components/template/admin_header.php";
 ?>
+<style>
+    h4 {
+        padding-bottom: 14px;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <?php
@@ -9,11 +14,11 @@ require_once "./components/template/admin_header.php";
         ?>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="row" style="margin: 20px;">
-                <h1>Properties</h1>
+                <h4>Properties</h4>
             </div>
 
             <div class="row" style="margin: 20px;">
-                <table class="table" style="text-align:center;">
+                <table class="table table-hover table-bordered" style="text-align:center;">
                     <tr>
                         <th>ID</th>
                         <th>Property Name</th>

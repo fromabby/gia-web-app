@@ -13,18 +13,34 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 
+<style>
+    .invert {
+        filter: invert(100%)
+    }
+
+    .navbar-brand {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+</style>
+
 <body>
     <?php
     session_start();
     if (isset($_SESSION['username'])) {
     ?>
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">HomeEscapes</a>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="admin_logout.php">Sign out</a>
-                </li>
-            </ul>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="home.php">
+                    <img src="images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
+
+                    GIA Homes</a>
+                <ul class="navbar-nav px-3">
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link" href="admin_logout.php">Sign out</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     <?php } ?>
     <?php

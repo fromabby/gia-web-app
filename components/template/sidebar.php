@@ -1,5 +1,5 @@
 <head>
-    <link href="../../dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>

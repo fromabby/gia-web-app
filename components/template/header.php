@@ -9,7 +9,7 @@
     <title><?php echo $title; ?></title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <style>
@@ -21,16 +21,36 @@
             overflow-x: hidden;
         }
 
+        .navbar-brand {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+            font-weight: bold;
+        }
+
+        .nav-link {
+            font-weight: bold;
+        }
+
+
+        .login {
+            border: 1px black solid;
+            padding: 3px 30px 3px 30px;
+            border-radius: 50px;
+            font-size: 90%;
+        }
+
         footer {
             margin-top: auto;
+
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="home.php">HomeEscapes</a>
+            <img src="images/logo.png" alt="" width="22" height="20" class="d-inline-block align-text-top" style="margin-right: 10px">
+            <a class="navbar-brand" href="home.php">GIA Homes</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,19 +62,20 @@
 
                 </ul>
                 <?php
-                    session_start();
-                    if (isset($_SESSION['username'])) {
+                session_start();
+                if (isset($_SESSION['username'])) {
                 ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">
                         <li class="d-flex nav-item"><a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a></li>
                     </ul>
                 <?php } else { ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">
-                        <li class="d-flex nav-item"><a class="nav-link active" aria-current="page" href="login.php">Log in</a></li>
+                        <li class="d-flex nav-item"><a class="nav-link login active" aria-current="page" href="login.php">Log in</a></li>
                     </ul>
                 <?php } ?>
             </div>
         </div>
+        <hr>
     </nav>
 
     <?php
