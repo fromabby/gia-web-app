@@ -4,8 +4,7 @@ require_once "./components/template/header.php";
 
 if (!isset($_SESSION['email'])) {
 ?>
-
-    <div class="card" style="width: 20rem; margin: 20px auto;">
+<div class="card" style="width: 20rem; margin: 50px auto;">
         <div class="card-body">
             <h5 class="card-title">Admin Login</h5>
 
@@ -18,7 +17,7 @@ if (!isset($_SESSION['email'])) {
                     <input type="email" class="form-control" id="floatingInput" placeholder="example@domain.com" name="email">
                     <label for="floatingInput">Email</label>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating" style="padding-bottom: 30px;">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                     <label for="floatingPassword">Password</label>
                 </div>
@@ -33,4 +32,5 @@ if (!isset($_SESSION['email'])) {
     header("Location: dashboard.php");
 }
 
+require_once "./components/template/footer.php";
 ?>

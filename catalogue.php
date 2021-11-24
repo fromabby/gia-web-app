@@ -12,21 +12,16 @@ require_once "./carousel.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/dashboard.css" rel="stylesheet">
-
 </head>
     
 <body>
     <main role="main">
-    
         <div class="album py-5 bg-light">
             <div class="container">
-
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">

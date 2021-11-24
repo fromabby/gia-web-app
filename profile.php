@@ -1,5 +1,11 @@
 <?php
-$title = "Profile";
+if (isset($_GET['update'])) {
+    $title = "Update Profile";
+}
+if (isset($_GET['view'])) {
+    $title = "My Profile";
+}
+
 include_once './functions/auth.php';
 require_once "./components/template/admin_header.php";
 

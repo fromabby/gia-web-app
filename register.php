@@ -1,5 +1,5 @@
 <?php
-$title = "Profile";
+$title = "Register";
 require_once "./components/template/admin_header.php";
 
 if (isset($_POST["submit"])) {

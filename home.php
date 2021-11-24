@@ -1,5 +1,5 @@
 <?php
-    $title = "Home Escapes";
+    $title = "Home";
     require_once "./components/template/header.php";
 ?>
 <head>

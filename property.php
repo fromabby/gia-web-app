@@ -1,8 +1,14 @@
 <?php
+if (isset($_GET['update'])) {
+    $title = "Update Property";
+}
+if (isset($_GET['new'])) {
+    $title = "Add new property";
+}
+
 include_once './functions/property.php';
 require_once "./components/template/admin_header.php";
 
-$title = "";
 if (isset($_SESSION['email'])) {
     $obj = new Property();
 
