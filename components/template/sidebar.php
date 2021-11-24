@@ -4,6 +4,7 @@
 
     <link href="../../css/dashboard.css" rel="stylesheet">
     <link href="../../css/sidebar.css" rel="stylesheet">
+    <link href="../../css/sidebar-1.css" rel="stylesheet">
 
     <style>
         /* Shrinking the sidebar from 250px to 80px and center aligining its content*/
