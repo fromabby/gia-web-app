@@ -55,15 +55,15 @@ if (isset($_SESSION['username'])) {
                         <div class="form-group pb-3">
                             <label>Concern Type</label>
                             <select class="form-control" name="concernType" disabled value="<?php echo $concernType; ?>">
-                                <option value="">-</option>
-                                <option value="Inquiry">Inquiry</option>
-                                <option value="Quotation">Quotation</option>
-                                <option value="Others">Others</option>
+                                <option value="" <?php echo ($concernType == "") ? "selected" : "" ?>>-</option>
+                                <option value="Inquiry" <?php echo ($concernType == "Inquiry") ? "selected" : "" ?>>Inquiry</option>
+                                <option value="Quotation" <?php echo ($concernType == "Quotation") ? "selected" : "" ?>>Quotation</option>
+                                <option value="Others" <?php echo ($concernType == "Others") ? "selected" : "" ?>>Others</option>
                             </select>
                         </div>
                         <div class="form-group pb-3" name="message">
                             <label>Message</label>
-                            <textarea class="form-control" rows="3" name="message" disabled value="<?php echo $message; ?>"></textarea>
+                            <textarea class="form-control" rows="3" name="message" disabled><?php echo $message; ?></textarea>
                         </div>
                     </form>
                 </div>

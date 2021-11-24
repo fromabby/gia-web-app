@@ -2,6 +2,7 @@
 include_once './functions/property.php';
 require_once "./components/template/admin_header.php";
 
+$title = "";
 if (isset($_SESSION['username'])) {
     $obj = new Property();
 
@@ -26,103 +27,240 @@ if (isset($_SESSION['username'])) {
         $price = $row['price'];
         $propertyType = $row['propertyType'];
         $image = $row['image'];
-        $msg = '';
+        
         if (isset($_POST["update"])) {
             $obj = new Property();
-            $res = $obj->updateProperty($_POST, $_FILES);
+
+            if ($_FILES['image']['name'] !== "") {
+                $res = $obj->updateProperty($_POST, $_FILES);
+                // path to store the uploaded image
+                $target = "./functions/images/" . basename($_FILES['image']['name']);
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                    header("Location: properties_table.php");
+                } else {
+                    $error = "There was a problem";
+                }
+            } else {
+                $res = $obj->updatePropertyWithoutImage($_POST);
+                
+                header("Location: properties_table.php");
+            }
+        }
+
+?>
+        <html>
+        <style>
+            input[type=text],
+            select,
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical
+            }
+
+            input[type=submit] {
+                background-color: #04AA6D;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            .form-container {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+        </style>
+
+        <div class="container-fluid">
+            <div class="row">
+                <?php
+                require_once "./components/template/sidebar.php";
+                ?>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <div class="container form-container">
+                        <h1>Update Property</h1>
+                        <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php } ?>
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <label for="name">Property Name</label>
+                            <input type="text" id="name" name="name" placeholder="Property Name" value=<?php echo $name; ?> required>
+
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" placeholder="Write something.." style="height:200px" required><?php echo $description; ?></textarea>
+
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="Location" value="<?php echo $location; ?>" required>
+
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="lotArea">Lot Area</label>
+                                    <input type="text" id="lotArea" name="lotArea" placeholder="100 sqm" value=<?php echo $lotArea; ?> required>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="price">Price</label>
+                                    <input type="text" id="price" name="price" placeholder="1000000" value=<?php echo $price; ?> required>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="propertyType">Property Type</label>
+                                    <select id="propertyType" name="propertyType" required>
+                                        <option value='' <?php echo ($propertyType == "") ? "selected" : "" ?>>-</option>
+                                        <option value="Condo" <?php echo ($propertyType == "Condo") ? "selected" : "" ?>>Condo</option>
+                                        <option value="Town House" <?php echo ($propertyType == "Town House") ? "selected" : "" ?>>Town House</option>
+                                        <option value="Mansion" <?php echo ($propertyType == "Mansion") ? "selected" : "" ?>>Mansion</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <label for="image">Select image attachment</label>
+                                    </div>
+                                    <div>
+                                        <input type="file" class="form-control-file" id="image" name="image">
+                                    </div>
+                                    <div>
+                                        <img src=<?php echo "functions/images/$row[image]"; ?> height=100 class="my-2"/>
+                                    </div>
+                                </div>
+                                <center><input type="submit" value="Update" name="update"></center>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        </html>
+    <?php
+    }
+
+    if (isset($_GET['new'])) {
+        $title = "New Property";
+        if (isset($_POST["submit"])) {
+            $res = $obj->createProperty($_POST, $_FILES);
             // path to store the uploaded image
             $target = "./functions/images/" . basename($_FILES['image']['name']);
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                 header("Location: properties_table.php");
             } else {
-                $msg = "There was a problem";
+                header("Location: property.php?new=?error=There is an error");
             }
         }
-    }
-?>
-    <html>
-    <style>
-        input[type=text],
-        select,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 6px;
-            margin-bottom: 16px;
-            resize: vertical
-        }
+    ?>
+        <style>
+            input[type=text],
+            select,
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical
+            }
 
-        input[type=submit] {
-            background-color: #04AA6D;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+            input[type=submit] {
+                background-color: #04AA6D;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
 
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
+            input[type=submit]:hover {
+                background-color: hsl(158, 100%, 16%);
+            }
 
-        .form-container {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-        }
-    </style>
+            .form-container {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
 
-    <div class="container-fluid">
-        <div class="row">
-            <?php
-            require_once "./components/template/sidebar.php";
-            ?>
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                <div class="container form-container">
-                    <h1>Update Property</h1>
-                    <form action="" method="post" enctype="multipart/form-data">
+            .container {
+                border-radius: 5px;
 
-                        <label for="name">Property Name</label>
-                        <input type="text" id="name" name="name" placeholder="Property Name" value=<?php echo $name; ?> required>
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
 
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" placeholder="Write something.." style="height:200px" required><?php echo $description; ?></textarea>
+            h4 {
+                padding-bottom: 14px;
+            }
+        </style>
+        <div class=" container-fluid">
+            <div class="row">
+                <?php
+                require_once "./components/template/sidebar.php";
+                ?>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <div class="container shadow form-container">
+                        <h4>Create new property</h4>
 
-                        <label for="location">Location</label>
-                        <input type="text" id="location" name="location" placeholder="Location" value=<?php echo $location; ?> required>
+                        <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php } ?>
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <label for="name">Property Name</label>
+                            <input type="text" id="name" name="name" placeholder="Property Name" required>
 
-                        <label for="lotArea">Lot Area</label>
-                        <input type="text" id="lotArea" name="lotArea" placeholder="Lot Area" value=<?php echo $lotArea; ?> required>
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" placeholder="Write something.." style="height:200px" required></textarea>
 
-                        <label for="price">Price</label>
-                        <input type="text" id="price" name="price" placeholder="Price" value=<?php echo $price; ?> required>
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="Location" required>
 
-                        <label for="propertyType">Property Type</label>
-                        <select id="propertyType" name="propertyType" value=<?php echo $propertyType; ?> required>
-                            <option value=''>-</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Town House">Town House</option>
-                            <option value="Mansion">Mansion</option>
-                        </select>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="lotArea">Lot Area</label>
+                                    <input type="text" id="lotArea" name="lotArea" placeholder="100 sqm" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="image">Select image attachment</label>
-                            <input type="file" class="form-control-file" id="image" name="image">
-                        </div>
+                                <div class="col-md-4">
+                                    <label for="price">Price</label>
+                                    <input type="text" id="price" name="price" placeholder="1000000" required>
+                                </div>
 
-                        <input type="submit" value="Update" name="update">
-
-                    </form>
-                </div>
-            </main>
+                                <div class="col-md-4">
+                                    <label for="propertyType">Property Type</label>
+                                    <select id="propertyType" name="propertyType" required>
+                                        <option value=''>-</option>
+                                        <option value="Condo">Condo</option>
+                                        <option value="Town House">Town House</option>
+                                        <option value="Mansion">Mansion</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <label for="image">Select image attachment</label>
+                                    </div>
+                                    <div>
+                                        <input type="file" class="form-control-file" id="image" name="image" required>
+                                    </div>
+                                </div>
+                                <center><input type="submit" value="Submit" name="submit"></center>
+                        </form>
+                    </div>
+                </main>
+            </div>
         </div>
-    </div>
-
-    </html>
 <?php
+    }
 } else {
     header("Location: login.php");
     exit();

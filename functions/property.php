@@ -41,8 +41,21 @@
 
             $q="update `property` set id=$id,name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image' where id='$id'";
             return $this->mysqli->query($q);
-
         }
+
+        public function updatePropertyWithoutImage($data){
+            $id = $_GET['update'];
+            $name = $data['name'];
+            $description = $data['description'];
+            $location = $data['location'];
+            $lotArea = $data['lotArea'];
+            $price = $data['price'];
+            $propertyType= $data['propertyType'];
+
+            $q="update `property` set id=$id,name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType' where id='$id'";
+            return $this->mysqli->query($q);
+        }
+
         public function getSingleProperty(){
             $id = $_GET['update'];
             $q = "SELECT * FROM property WHERE id='$id'";
