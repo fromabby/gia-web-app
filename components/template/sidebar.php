@@ -83,19 +83,16 @@
 
 <body>
     <div class="sidenav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
-        <button class="dropdown-btn">Dropdown
+        <a href="#about">Dashboard</a>
+        <button class="dropdown-btn">Properties
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="#">Create Property</a>
+            <a href="#">Properties List</a>
         </div>
-        <a href="#contact">Search</a>
+        <a href="#contact">Sign out</a>
+        <a href="#contact">Back to Home</a>
     </div>
 
     <script>
