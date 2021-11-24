@@ -102,9 +102,24 @@ if (isset($_SESSION['email'])) {
             <?php
             require_once "./components/template/sidebar.php";
             ?>
+            <style>
+                .form-group{
+                    margin-bottom: 3px;
+                }
+
+                .card-body {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                
+            }
+            h4 {
+                padding-bottom: 14px;
+            }
+            </style>
             <div class="card shadow" style="width: 30rem; margin: 20px auto;">
                 <div class="card-body">
-                    <h5 class="card-title">My Profile</h5>
+                    <h4>My Profile</h4>
                     <?php
                     if (isset($_GET['message'])) {
                     ?>

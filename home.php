@@ -1,9 +1,5 @@
 <?php
-<<<<<<< Updated upstream
     $title = "Home";
-=======
-    $title = "GIA Homes | Home";
->>>>>>> Stashed changes
     require_once "./components/template/header.php";
 ?>
 <head>

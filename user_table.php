@@ -28,7 +28,7 @@ if (isset($_SESSION['email'])) {
                         <input type="submit" name="search" value="Search">
                         <input type="submit" name="reset" value="Reset">
                     </form>
-                    <table class="table table-hover table-bordered" style="text-align:center;">
+                    <table class="table table-hover table-bordered" style="text-align:center; margin-top:20px;">
                         <tr>
                             <th>Email</th>
                             <th>Full Name</th>
