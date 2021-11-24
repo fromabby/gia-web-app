@@ -63,7 +63,7 @@
                 </ul>
                 <?php
                 session_start();
-                if (isset($_SESSION['username'])) {
+                if (isset($_SESSION['email'])) {
                 ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">
                         <li class="d-flex nav-item"><a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a></li>

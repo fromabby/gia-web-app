@@ -2,7 +2,7 @@
 $title = "Properties";
 require_once "./components/template/admin_header.php";
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['email'])) {
 ?>
     <style>
         h4 {

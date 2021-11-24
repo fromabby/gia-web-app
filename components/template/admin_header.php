@@ -27,7 +27,7 @@
 <body>
     <?php
     session_start();
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['email'])) {
     ?>
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <div class="container-fluid">

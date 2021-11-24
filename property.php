@@ -3,7 +3,7 @@ include_once './functions/property.php';
 require_once "./components/template/admin_header.php";
 
 $title = "";
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['email'])) {
     $obj = new Property();
 
     if (isset($_GET['delete'])) {

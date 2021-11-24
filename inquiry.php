@@ -2,7 +2,7 @@
 include_once './functions/inquiry.php';
 require_once "./components/template/admin_header.php";
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['email'])) {
     $obj = new Inquiry();
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];

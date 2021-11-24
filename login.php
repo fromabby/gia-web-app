@@ -2,8 +2,7 @@
 $title = "Login";
 require_once "./components/template/header.php";
 
-
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['email'])) {
 ?>
 
     <div class="card" style="width: 20rem; margin: 20px auto;">
@@ -16,8 +15,8 @@ if (!isset($_SESSION['username'])) {
 
             <form class="form-horizontal mt-3" method="post" action="admin_verify.php">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="myusername" name="username">
-                    <label for="floatingInput">Username</label>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="example@domain.com" name="email">
+                    <label for="floatingInput">Email</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">

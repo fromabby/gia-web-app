@@ -2,7 +2,7 @@
 $title = "New Property";
 require_once "./components/template/admin_header.php";
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['email'])) {
     if (isset($_POST["submit"])) {
         include_once './functions/property.php';
         $obj = new Property();
