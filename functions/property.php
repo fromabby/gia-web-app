@@ -57,8 +57,14 @@
         }
 
         public function getSingleProperty(){
-            $id = $_GET['update'];
-            $q = "SELECT * FROM property WHERE id='$id'";
+            if(isset($_POST['id'])) {
+                $id = $_POST['id'];
+                $q = "SELECT * FROM property WHERE id='$id'";
+            } else {
+                $id = $_GET['update'];
+                $q = "SELECT * FROM property WHERE id='$id'";
+            }
+            
             return $this->mysqli->query($q);
         }
     

@@ -3,8 +3,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <link href="../../css/dashboard.css" rel="stylesheet">
-    <link href="../../css/sidebar.css" rel="stylesheet">
-    <link href="../../css/sidebar-1.css" rel="stylesheet">
 
     <style>
         /* Fixed sidenav, full height */
@@ -83,16 +81,17 @@
 
 <body>
     <div class="sidenav">
-        <a href="#about">Dashboard</a>
+        <a href="dashboard.php">Dashboard</a>
         <button class="dropdown-btn">Properties
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Create Property</a>
-            <a href="#">Properties List</a>
+            <a href="property.php?new=1">Create Property</a>
+            <a href="properties_table.php">Properties List</a>
         </div>
-        <a href="#contact">Sign out</a>
-        <a href="#contact">Back to Home</a>
+        <a href="inquiries_table.php">Inquiries</a>
+        <a href="admin_logout.php">Sign out</a>
+        <a href="home.php">Back to Home</a>
     </div>
 
     <script>
