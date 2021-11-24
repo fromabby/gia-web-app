@@ -89,6 +89,7 @@ if (isset($_SESSION['email'])) {
     <body>
         <div class="sidenav">
             <a href="dashboard.php">Dashboard</a>
+            <a href=profile.php?view=<?php echo $email; ?>>My Profile</a>
             <button class="dropdown-btn">Properties
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -97,9 +98,13 @@ if (isset($_SESSION['email'])) {
                 <a href="properties_table.php">Properties List</a>
             </div>
             <a href="inquiries_table.php">Inquiries</a>
-            <a href="register.php">Register</a>
-            <a href="user_table.php">Users</a>
-            <a href=profile.php?view=<?php echo $email; ?>>Profile</a>
+            <button class="dropdown-btn">Users
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="register.php">Register</a>
+                <a href="user_table.php">Users List</a>
+            </div>
             <a href="admin_logout.php">Sign out</a>
             <a href="home.php">Back to Home</a>
         </div>

@@ -117,7 +117,7 @@ if (isset($_SESSION['email'])) {
                             <label>Email address</label>
                             <input type="email" class="form-control" placeholder="name@example.com" name="email" value="<?php echo $useremail; ?>" disabled>
                         </div>
-                        <center><a class="btn btn-primary" role="button" href=<?php echo 'profile.php?update=$email' ?>>Update</a></center>
+                        <center><a class="btn btn-primary" role="button" href=profile.php?update=<?php echo $email; ?>>Update</a></center>
                     </form>
                 </div>
             </div>
