@@ -4,9 +4,40 @@ require_once "./components/template/header.php";
 
 if (!isset($_SESSION['email'])) {
 ?>
+<<<<<<< Updated upstream
 <div class="card" style="width: 20rem; margin: 50px auto;">
+=======
+
+<style>
+    .card-header{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        background-color: #c8d8ff;
+    }
+
+    .rectangle{
+        background-color: #040B1C;
+        height: 5px; 
+        width: auto;
+    }
+
+    .home-btn {
+        background-color: #040B1C;
+        color: white;
+        border-radius: 50px;
+        padding: 5px 30px 5px 30px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="rectangle"></div>
+    <div class="card shadow" style="width: 20rem; margin: 20px auto; margin-top: 35px;">
+>>>>>>> Stashed changes
         <div class="card-body">
-            <h5 class="card-title">Admin Login</h5>
+            <h4 class="card-header">Admin Login</h4>
 
             <?php if (isset($_GET['error'])) { ?>
                 <p class="error"><?php echo $_GET['error']; ?></p>
@@ -22,7 +53,7 @@ if (!isset($_SESSION['email'])) {
                     <label for="floatingPassword">Password</label>
                 </div>
 
-                <center><input type="submit" name="submit" class="btn btn-primary mt-2"></center>
+                <center><input type="submit" name="submit" class="btn shadow home-btn mt-2"></center>
             </form>
         </div>
     </div>
