@@ -32,7 +32,7 @@
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="home.php">
-                    <img src="images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
+                    <img src="functions/images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
 
                     GIA Homes</a>
                 <ul class="navbar-nav px-3">

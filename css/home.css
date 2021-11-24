@@ -1,5 +1,5 @@
 .site-content {
-    background-image: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.5)), url('images/residence.jpg');
+    background-image: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.5)), url('../functions/images/residence.jpg');
     background-attachment: local;
     background-size: cover;
     text-align: center;
@@ -8,6 +8,7 @@
 .title {
     color: black;
     padding-top: 50px;
+    text-decoration: underline;
 }
 
 .site-title {
@@ -58,6 +59,7 @@
 
 .card {
     padding: 0px 10px 0px 10px;
+    z-index: 10;
 }
 
 .card-contain {
@@ -66,11 +68,7 @@
     margin-right: auto;
 }
 
-hr {
-    border-top: 4px solid #040B1C;
-    padding: 0px;
-    margin: 0px;
-}
+
 
 .last-text {
     padding-top: 90px;
@@ -78,4 +76,26 @@ hr {
     margin-right: 70px;
     font-size: 70%;
     color: gray;
+}
+
+.rectangle{
+    background-color: #040B1C;
+    height: 5px; 
+    width: auto;
+}
+
+.rectangle3{
+    background-color: #040B1C;
+    height: 5px; 
+    width: auto;
+}
+
+.rectangle2{
+    background-color: #c8d8ff;
+    height: 200px; 
+    width: 900px;
+    z-index:-10;
+    margin: auto;
+    position: absolute;
+
 }

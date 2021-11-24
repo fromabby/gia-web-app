@@ -18,6 +18,7 @@ if (isset($_SESSION['email'])) {
                 <div class="row" style="margin: 20px;">
                     <h1>Properties</h1>
                 </div>
+                
 
                 <div class="row" style="margin: 20px;">
 

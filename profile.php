@@ -102,7 +102,7 @@ if (isset($_SESSION['email'])) {
             <?php
             require_once "./components/template/sidebar.php";
             ?>
-            <div class="card" style="width: 30rem; margin: 20px auto;">
+            <div class="card shadow" style="width: 30rem; margin: 20px auto;">
                 <div class="card-body">
                     <h5 class="card-title">My Profile</h5>
                     <?php
