@@ -40,8 +40,8 @@ if (isset($_SESSION['email'])) {
                         $res = $obj->getUsers();
 
                         if (isset($_POST['search'])) {
-                            $id = $_POST['id'];
-                            $res = $obj->getSingleUser($id);
+                            $email = $_POST['email'];
+                            $res = $obj->getSingleUser($email);
 
                             if ($res->num_rows > 0) {
                                 while ($row = $res->fetch_assoc()) {
