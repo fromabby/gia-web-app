@@ -24,24 +24,27 @@ if (isset($_SESSION['email'])) {
         $row = mysqli_fetch_assoc($singRes);
         $firstName = $row['firstName'];
         $lastName = $row['lastName'];
-        $email = $row['email'];
+        $useremail = $row['email'];
         $password = $row['password'];
 
         if (isset($_POST["update"])) {
             $obj = new User();
 
             if ($_POST['password'] !== $_POST['confirmpassword']) {
-                header("Location: profile.php?update=$email&message=Password do not match");
+                header("Location: profile.php?update=$useremail&message=Password do not match");
             } else {
                 $res = $obj->updateUser($_POST);
                 if ($res == true) {
-                    header("Location: profile.php?update=$email&message=Updated Successfully");
+                    header("Location: profile.php?update=$useremail&message=Updated Successfully");
                 } else {
-                    header("Location: register.php?update=$email&message=Error");
+                    header("Location: register.php?update=$useremail&message=Error");
                 }
             }
         }
 ?>
+        <?php
+        require_once "./components/template/sidebar.php";
+        ?>
         <div class="card" style="width: 30rem; margin: 20px auto;">
             <div class="card-body">
                 <h5 class="card-title">Update Profile</h5>
@@ -61,7 +64,7 @@ if (isset($_SESSION['email'])) {
                     </div>
                     <div class="form-group pb-3">
                         <label>Email address</label>
-                        <input type="email" class="form-control" placeholder="name@example.com" name="email" value=<?php echo $email; ?> disabled>
+                        <input type="email" class="form-control" placeholder="name@example.com" name="email" value=<?php echo $useremail; ?> disabled>
                     </div>
                     <div class="form-group pb-3">
                         <label>Password</label>
@@ -83,13 +86,16 @@ if (isset($_SESSION['email'])) {
         $email = $_GET['view'];
         $singRes = $obj->getSingleUser($email);
 
-        $row = mysqli_fetch_assoc($singRes);
-        $firstName = $row['firstName'];
-        $lastName = $row['lastName'];
-        $email = $row['email'];
 
         if ($singRes == true) {
+            $row = mysqli_fetch_assoc($singRes);
+            $firstName = $row['firstName'];
+            $lastName = $row['lastName'];
+            $useremail = $row['email'];
         ?>
+            <?php
+            require_once "./components/template/sidebar.php";
+            ?>
             <div class="card" style="width: 30rem; margin: 20px auto;">
                 <div class="card-body">
                     <h5 class="card-title">My Profile</h5>
@@ -101,16 +107,17 @@ if (isset($_SESSION['email'])) {
                     <form action="" method="post">
                         <div class="form-group pb-3">
                             <label>First Name</label>
-                            <input type="text" class="form-control" placeholder="Juan" name="firstName" value=<?php echo $firstName; ?> disabled>
+                            <input type="text" class="form-control" placeholder="Juan" name="firstName" value="<?php echo $firstName; ?>" disabled>
                         </div>
                         <div class="form-group pb-3">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" placeholder="Dela Cruz" name="lastName" value=<?php echo $lastName; ?> disabled>
+                            <input type="text" class="form-control" placeholder="Dela Cruz" name="lastName" value="<?php echo $lastName; ?>" disabled>
                         </div>
                         <div class="form-group pb-3">
                             <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="name@example.com" name="email" value=<?php echo $email; ?> disabled>
+                            <input type="email" class="form-control" placeholder="name@example.com" name="email" value="<?php echo $useremail; ?>" disabled>
                         </div>
+                        <center><a class="btn btn-primary" role="button" href=<?php echo 'profile.php?update=$email' ?>>Update</a></center>
                     </form>
                 </div>
             </div>
@@ -129,7 +136,6 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
 <?php
-
         }
     }
 } else {

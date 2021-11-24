@@ -45,11 +45,6 @@ if (isset($_SESSION['email'])) {
                         $obj = new Property();
                         $res = $obj->getProperties();
 
-                        if (isset($_GET['delete'])) {
-                            $id = $_GET['delete'];
-                            $del = $obj->deleteProperty($id);
-                        }
-
                         if (isset($_POST['search'])) {
                             $id = $_POST['id'];
                             $res = $obj->getSingleProperty($id);

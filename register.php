@@ -19,8 +19,11 @@ if (isset($_POST["submit"])) {
 ?>
 
 <div class="card" style="width: 30rem; margin: 20px auto;">
+    <?php
+    require_once "./components/template/sidebar.php";
+    ?>
     <div class="card-body">
-        <h5 class="card-title">Contact Us</h5>
+        <h5 class="card-title">Register</h5>
         <?php
         if (isset($_GET['message'])) {
         ?>
@@ -29,15 +32,18 @@ if (isset($_POST["submit"])) {
         <form action="" method="post">
             <div class="form-group pb-3">
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="Juan" name="firstName" value=<?php $firstName = isset($_POST['firstName']) ? $_POST['firstName'] : ""; echo $firstName; ?>>
+                <input type="text" class="form-control" placeholder="Juan" name="firstName" value=<?php $firstName = isset($_POST['firstName']) ? $_POST['firstName'] : "";
+                                                                                                    echo $firstName; ?>>
             </div>
             <div class="form-group pb-3">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Dela Cruz" name="lastName" value=<?php $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : ""; echo $lastName; ?>>
+                <input type="text" class="form-control" placeholder="Dela Cruz" name="lastName" value=<?php $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : "";
+                                                                                                        echo $lastName; ?>>
             </div>
             <div class="form-group pb-3">
                 <label>Email address</label>
-                <input type="email" class="form-control" placeholder="name@example.com" name="email" value=<?php $email = isset($_POST['email']) ? $_POST['email'] : ""; echo $email; ?>>
+                <input type="email" class="form-control" placeholder="name@example.com" name="email" value=<?php $email = isset($_POST['email']) ? $_POST['email'] : "";
+                                                                                                            echo $email; ?>>
             </div>
             <div class="form-group pb-3">
                 <label>Password</label>
