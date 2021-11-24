@@ -2,6 +2,7 @@
 $title = "Dashboard";
 require_once "./components/template/admin_header.php";
 
+
 if (isset($_SESSION['username'])) {
 ?>
     <div class="container-fluid">
@@ -21,8 +22,8 @@ if (isset($_SESSION['username'])) {
                         </div>
                     </div>
                 </div>
-                <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
-
+                <canvas class="my-4" width="900" height="410">
+                </canvas>
             </main>
         </div>
 
@@ -32,6 +33,4 @@ if (isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
-
-require_once "./components/template/footer.php";
 ?>

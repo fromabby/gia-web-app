@@ -1,6 +1,8 @@
 <?php
 $title = "Inquiries";
 require_once "./components/template/admin_header.php";
+
+if (isset($_SESSION['username'])) {
 ?>
 
 <div class="container-fluid">
@@ -39,7 +41,8 @@ require_once "./components/template/admin_header.php";
 
                         if ($res->num_rows > 0) {
                             while ($row = $res->fetch_assoc()) {
-                                echo "<tr><td>" . $row['inquiryId'] . "</td><td>" . $row['dateCreated'] . "</td><td>" . $row['fullName'] . "</td><td>" . $row['email'] . "</td><td>" . $row['contactNumber'] . "</td><td>" . $row['message'] . "</td><td>" . $row['concernType'] . "</td><td>" . "<a href='inquiry.php?delete=$row[inquiryId]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                echo "<tr><td>" . $row['inquiryId'] . "</td><td>" . $row['dateCreated'] . "</td><td>" . $row['fullName'] . "</td><td>" . $row['email'] . "</td><td>" . $row['contactNumber'] . "</td><td>" . $row['message'] . "</td><td>" . $row['concernType'] . "</td><td>" . "<a href='inquiry.php?id=$row[inquiryId]' class='btn btn-primary mx-2' role='button'><i class='fas fa-eye'></i></a>" . "<a href='inquiry.php?delete=$row[inquiryId]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                
                             }
                         } else {
                             echo "No search results";
@@ -49,7 +52,7 @@ require_once "./components/template/admin_header.php";
 
                         if ($res->num_rows > 0) {
                             while ($row = $res->fetch_assoc()) {
-                                echo "<tr><td>" . $row['inquiryId'] . "</td><td>" . $row['dateCreated'] . "</td><td>" . $row['fullName'] . "</td><td>" . $row['email'] . "</td><td>" . $row['contactNumber'] . "</td><td>" . $row['message'] . "</td><td>" . $row['concernType'] . "</td><td>" . "<a href='inquiry.php?delete=$row[inquiryId]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                echo "<tr><td>" . $row['inquiryId'] . "</td><td>" . $row['dateCreated'] . "</td><td>" . $row['fullName'] . "</td><td>" . $row['email'] . "</td><td>" . $row['contactNumber'] . "</td><td>" . $row['message'] . "</td><td>" . $row['concernType'] . "</td><td>" . "<a href='inquiry.php?id=$row[inquiryId]' class='btn btn-primary mx-2' role='button'><i class='fas fa-eye'></i></a>" . "<a href='inquiry.php?delete=$row[inquiryId]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
                             }
                         } else {
                             echo "No results";
@@ -59,7 +62,7 @@ require_once "./components/template/admin_header.php";
 
                         if ($res->num_rows > 0) {
                             while ($row = $res->fetch_assoc()) {
-                                echo "<tr><td>" . $row['inquiryId'] . "</td><td>" . $row['dateCreated'] . "</td><td>" . $row['fullName'] . "</td><td>" . $row['email'] . "</td><td>" . $row['contactNumber'] . "</td><td>" . $row['message'] . "</td><td>" . $row['concernType'] . "</td><td>" . "<a href='inquiry.php?delete=$row[inquiryId]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                echo "<tr><td>" . $row['inquiryId'] . "</td><td>" . $row['dateCreated'] . "</td><td>" . $row['fullName'] . "</td><td>" . $row['email'] . "</td><td>" . $row['contactNumber'] . "</td><td>" . $row['message'] . "</td><td>" . $row['concernType'] . "</td><td>" . "<a href='inquiry.php?id=$row[inquiryId]' class='btn btn-primary mx-2' role='button'><i class='fas fa-eye'></i></a>" . "<a href='inquiry.php?delete=$row[inquiryId]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
                             }
                         } else {
                             echo "No results";
@@ -72,5 +75,8 @@ require_once "./components/template/admin_header.php";
     </div>
 </div>
 <?php
-require_once './components/template/footer.php';
+} else {
+    header("Location: login.php");
+    exit();
+}
 ?>
