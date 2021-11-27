@@ -1,6 +1,14 @@
 <?php
 $title = "hehehe title";
 require_once "./components/template/header.php";
+include_once "./functions/property.php";
+
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $q = "SELECT * FROM property WHERE id='$id'";
+}
+
 ?>
 
 <!DOCTYPE html>
