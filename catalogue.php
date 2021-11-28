@@ -36,7 +36,7 @@ $listProperty = $obj->getProperties();
                     foreach ($listProperty as $sheesh) { ?>
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top" src="./db/images/download.jpeg" alt="Card image cap">
+                                <img class="card-img-top" src="./db/images/<?php echo $sheesh['image']; ?>" alt="<?php echo $sheesh['image']; ?>" height="200">
                                 <div class="fw-bolder" style="padding: 5px 0px 0px 13px"><h5><?php echo $sheesh['name'] ?></h5></div>
                                 <div class="card-body" style="padding-top: 0px">
                                     <p class="card-text"><?php echo $sheesh['description'] ?></p>
@@ -49,9 +49,6 @@ $listProperty = $obj->getProperties();
                                 </div>
                             </div>
                         </div>
-
-
-
                     <?php } ?>
                 </div>
             </div>

@@ -27,7 +27,7 @@
             return $this->mysqli->query($q);
         }
         public function getPropertiesOther($id){
-            $q = "SELECT * FROM `property` WHERE `id` != $id";
+            $q = "SELECT * FROM property WHERE id != '$id'";
             return $this->mysqli->query($q);
         }
         public function deleteProperty($id){

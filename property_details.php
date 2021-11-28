@@ -1,14 +1,11 @@
 <?php
-$title = "heheh.e title";
+$title = "Property";
 require_once "./includes/header.php";
 include_once "./db/property.php";
 
 $propObj = new Property();
 if (isset($_GET['id'])) {
-    $title = "Inquiry Details";
     $singRes = $propObj->displaySingleProperty($_GET['id']);
-
-    $results = $propObj->getPropertiesOther($_GET['id']);
 
     $row = mysqli_fetch_assoc($singRes);
     $name = $row['name'];
@@ -17,6 +14,9 @@ if (isset($_GET['id'])) {
     $lotArea = $row['lotArea'];
     $price = $row['price'];
     $propertyType = $row['propertyType'];
+    $image = $row['image'];
+
+    $results = $propObj->getPropertiesOther($_GET['id']);
 }
 
 ?>
@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="../db/images/download.jpeg" alt="..." /></div>
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="./db/images/<?php echo $image; ?>" alt="<?php echo $image; ?>" /></div>
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder"><?php echo $name; ?></h1>
                     <div class="fs-5 mb-5">
@@ -51,7 +51,7 @@ if (isset($_GET['id'])) {
                     </div>
                     <p class="lead"><?php echo $description; ?></p>
                     <div class="d-flex">
-                        <a href="contactus.php">
+                        <a href="./contactus.php">
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 Book a Viewing
                             </button>
@@ -71,24 +71,23 @@ if (isset($_GET['id'])) {
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="functions/images/download.jpeg" alt="..." />
+                            <img class="card-img-top" src="./db/images/<?php echo $otherProp['image'];?>" alt="<?php $otherProp['image']; ?>" height="150" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo $otherProp['name'] ?></h5>
+                                    <h5 class="fw-bolder"><?php echo $otherProp['name']; ?></h5>
                                     <!-- Product price-->
-                                    ₱ <?php echo $otherProp['price'] ?>
+                                    ₱ <?php echo $otherProp['price']; ?>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="property_details.php?id=<?php echo $otherProp['id'] ?>"><i class="bi-house-fill me-1"></i>View Property</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="property_details.php?id=<?php echo $otherProp['id']; ?>"><i class="bi-house-fill me-1"></i>View Property</a></div>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
-
             </div>
         </div>
     </section>
