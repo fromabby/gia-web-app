@@ -26,14 +26,17 @@
             $q = "SELECT * FROM property";
             return $this->mysqli->query($q);
         }
+
         public function getPropertiesOther($id){
             $q = "SELECT * FROM property WHERE id != '$id'";
             return $this->mysqli->query($q);
         }
+
         public function deleteProperty($id){
             $q = "DELETE FROM property WHERE id='$id'";
             return $this->mysqli->query($q);
         }
+        
         public function updateProperty($data,$imageFile){
             $id = $_GET['update'];
             $name = $data['name'];

@@ -6,55 +6,6 @@
 
 <body>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="first-slide" src="./db/images/download.jpeg" alt="First slide">
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h1>Invest now!</h1>
-                        <p>We at GIA Homes are committed to deliver the best brokering service in the market. Whether you are looking to sell your property or purchase your next investment, we are here to assist you.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Inquire today</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="second-slide" src="./db/images/download.jpeg" alt="Second slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Be Great!</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="third-slide" src="./db/images/download.jpeg" alt="Third slide">
-                <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>Get your FUTURE now!</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-
     <!-- Marketing messaging and featurettes
       ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
