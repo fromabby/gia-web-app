@@ -47,9 +47,24 @@
             background-color: #343A40;
         }
 
-        footer {
-            margin-top: auto;
-        }
+        .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 70px;
+        color: white;
+        background-color: #212529;
+        text-align: center;
+        
+    }
+    .textFooter{
+        padding-top: 20px;
+        align-items: flex-end  ;
+        color: white;
+
+    }
+
     </style>
 </head>
 
