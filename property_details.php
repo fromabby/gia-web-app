@@ -10,7 +10,6 @@ if (isset($_GET['id'])) {
 
     $results = $propObj->getPropertiesOther($_GET['id']);
 
-
     $row = mysqli_fetch_assoc($singRes);
     $name = $row['name'];
     $description = $row['description'];
