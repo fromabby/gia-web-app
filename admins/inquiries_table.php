@@ -1,6 +1,6 @@
 <?php
 $title = "Inquiries";
-require_once "./components/template/admin_header.php";
+require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
 ?>
@@ -8,7 +8,7 @@ if (isset($_SESSION['email'])) {
     <div class="container-fluid">
         <div class="row">
             <?php
-            require_once "./components/template/sidebar.php";
+            require_once "../includes/sidebar.php";
             ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="row" style="margin: 20px;">
@@ -31,7 +31,7 @@ if (isset($_SESSION['email'])) {
                             <th>Actions</th>
                         </tr>
                         <?php
-                        include_once './functions/inquiry.php';
+                        include_once './../db/inquiry.php';
                         $obj = new Inquiry();
                         if (isset($_POST['search'])) {
                             $inquiryId = $_POST['id'];
@@ -74,7 +74,7 @@ if (isset($_SESSION['email'])) {
     </div>
 <?php
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

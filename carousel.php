@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link href="./css/carousel.css" rel="stylesheet">
+    <link href="./assets/css/carousel.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="first-slide" src="functions/images/download.jpeg" alt="First slide">
+                <img class="first-slide" src="./db/images/download.jpeg" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption text-left">
                         <h1>Invest now!</h1>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="second-slide" src="functions/images/download.jpeg" alt="Second slide">
+                <img class="second-slide" src="./db/images/download.jpeg" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Be Great!</h1>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="third-slide" src="functions/images/download.jpeg" alt="Third slide">
+                <img class="third-slide" src="./db/images/download.jpeg" alt="Third slide">
                 <div class="container">
                     <div class="carousel-caption text-right">
                         <h1>Get your FUTURE now!</h1>
@@ -73,7 +73,7 @@
                 <p class="lead">Find your next home in Metro Manila through the most trusted and reliable real estate advisors.</p>
             </div>
             <div class="col-md-4">
-                <img class="featurette-image img-fluid mx-auto" src="functions/images/download.jpeg" alt="Generic placeholder image">
+                <img class="featurette-image img-fluid mx-auto" src="./db/images/download.jpeg" alt="Generic placeholder image">
             </div>
         </div>
 
@@ -93,10 +93,10 @@
     <script>
         window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="./js/holder.min.js"></script>
+    <script src="./assets/js/holder.min.js"></script>
 </body>
 
 </html>

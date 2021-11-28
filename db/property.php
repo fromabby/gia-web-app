@@ -1,9 +1,10 @@
 <?php
     class Property{
-        private $host="localhost";
-        private $user = "root";
-        private $pass = "";
-        private $db = "phpproject";
+        // Remote database connection
+        private $host="remotemysql.com";
+        private $user = "oVdipl3Crx";
+        private $pass = "BxCIgGaNf6";
+        private $db = "oVdipl3Crx";
         public $mysqli;
         public function __construct()
         {

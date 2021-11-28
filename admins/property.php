@@ -6,8 +6,8 @@ if (isset($_GET['new'])) {
     $title = "Add new property";
 }
 
-include_once './functions/property.php';
-require_once "./components/template/admin_header.php";
+include_once './../db/property.php';
+require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
     $obj = new Property();
@@ -40,7 +40,7 @@ if (isset($_SESSION['email'])) {
             if ($_FILES['image']['name'] !== "") {
                 $res = $obj->updateProperty($_POST, $_FILES);
                 // path to store the uploaded image
-                $target = "./functions/images/" . basename($_FILES['image']['name']);
+                $target = "./../db/images/" . basename($_FILES['image']['name']);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                     header("Location: properties_table.php");
                 } else {
@@ -92,7 +92,7 @@ if (isset($_SESSION['email'])) {
         <div class="container-fluid">
             <div class="row">
                 <?php
-                require_once "./components/template/sidebar.php";
+                require_once "../includes/sidebar.php";
                 ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="container form-container">
@@ -138,7 +138,7 @@ if (isset($_SESSION['email'])) {
                                         <input type="file" class="form-control-file" id="image" name="image">
                                     </div>
                                     <div>
-                                        <img src=<?php echo "functions/images/$row[image]"; ?> height=100 class="my-2"/>
+                                        <img src=<?php echo "../db/images/$row[image]"; ?> height=100 class="my-2"/>
                                     </div>
                                 </div>
                                 <center><input type="submit" value="Update" name="update"></center>
@@ -157,7 +157,7 @@ if (isset($_SESSION['email'])) {
         if (isset($_POST["submit"])) {
             $res = $obj->createProperty($_POST, $_FILES);
             // path to store the uploaded image
-            $target = "./functions/images/" . basename($_FILES['image']['name']);
+            $target = "./../db/images/" . basename($_FILES['image']['name']);
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                 header("Location: properties_table.php");
             } else {
@@ -212,7 +212,7 @@ if (isset($_SESSION['email'])) {
         <div class=" container-fluid">
             <div class="row">
                 <?php
-                require_once "./components/template/sidebar.php";
+                require_once "../includes/sidebar.php";
                 ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="container shadow form-container">
@@ -268,7 +268,7 @@ if (isset($_SESSION['email'])) {
 <?php
     }
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

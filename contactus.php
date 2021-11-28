@@ -1,9 +1,9 @@
 <?php
     $title = "Contact Us";
-    require_once "./components/template/header.php";
+    require_once "./includes/header.php";
 
     if (isset($_POST["submit"])) {
-        include_once './functions/inquiry.php';
+        include_once './db/inquiry.php';
         $obj = new Inquiry();
         $res = $obj->contactUs($_POST);
         if ($res == true) {
@@ -91,5 +91,5 @@
 </div>
 <div class="rectangle2"></div>
 <?php
-    require_once "./components/template/footer.php";
+    require_once "./includes/footer.php";
 ?>

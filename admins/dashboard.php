@@ -1,6 +1,6 @@
 <?php
 $title = "Dashboard";
-require_once "./components/template/admin_header.php";
+require_once "../includes/admin_header.php";
 
 
 if (isset($_SESSION['email'])) {
@@ -8,7 +8,7 @@ if (isset($_SESSION['email'])) {
     <div class="container-fluid">
         <div class="row">
             <?php
-            require_once "./components/template/sidebar.php";
+            require_once "../includes/sidebar.php";
             ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
@@ -33,7 +33,7 @@ if (isset($_SESSION['email'])) {
     </div>
 <?php
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

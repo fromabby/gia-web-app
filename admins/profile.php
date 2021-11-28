@@ -6,8 +6,8 @@ if (isset($_GET['view'])) {
     $title = "My Profile";
 }
 
-include_once './functions/auth.php';
-require_once "./components/template/admin_header.php";
+include_once './../db/auth.php';
+require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
     $obj = new User();
@@ -49,7 +49,7 @@ if (isset($_SESSION['email'])) {
         }
 ?>
         <?php
-        require_once "./components/template/sidebar.php";
+        require_once "../includes/sidebar.php";
         ?>
         <div class="card" style="width: 30rem; margin: 20px auto;">
             <div class="card-body">
@@ -100,7 +100,7 @@ if (isset($_SESSION['email'])) {
             $useremail = $row['email'];
         ?>
             <?php
-            require_once "./components/template/sidebar.php";
+            require_once "../includes/sidebar.php";
             ?>
             <style>
                 .form-group{
@@ -160,7 +160,7 @@ if (isset($_SESSION['email'])) {
         }
     }
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 $title = "Catalogue";
-require_once "./components/template/header.php";
+require_once "./includes/header.php";
 require_once "./carousel.php";
 ?>
 
@@ -15,11 +15,11 @@ require_once "./carousel.php";
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <?php
-include_once "./functions/property.php";
+include_once "./db/property.php";
 //object create
 $obj = new Property();
 
@@ -28,8 +28,6 @@ $listProperty = $obj->getProperties();
 ?>
 
 <body>
-
-
     <main role="main">
         <div class="album py-5 bg-light">
             <div class="container">
@@ -38,7 +36,7 @@ $listProperty = $obj->getProperties();
                     foreach ($listProperty as $sheesh) { ?>
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top" src="functions/images/download.jpeg" alt="Card image cap">
+                                <img class="card-img-top" src="./db/images/download.jpeg" alt="Card image cap">
                                 <div class="fw-bolder" style="padding: 5px 0px 0px 13px"><h5><?php echo $sheesh['name'] ?></h5></div>
                                 <div class="card-body" style="padding-top: 0px">
                                     <p class="card-text"><?php echo $sheesh['description'] ?></p>
@@ -68,9 +66,9 @@ $listProperty = $obj->getProperties();
     <script>
         window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/holder.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/holder.min.js"></script>
 
 </body>
 
@@ -80,5 +78,5 @@ $listProperty = $obj->getProperties();
 
 
 <?php
-require_once "./components/template/footer.php";
+require_once "./includes/footer.php";
 ?>

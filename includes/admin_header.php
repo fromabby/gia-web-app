@@ -31,13 +31,13 @@
     ?>
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="home.php">
-                    <img src="functions/images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
+                <a class="navbar-brand" href="index.php">
+                    <img src="../db/images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
 
                     GIA Homes Dashboard</a>
                 <ul class="navbar-nav px-3">
                     <li class="nav-item text-nowrap">
-                        <a class="nav-link" href="admin_logout.php">Sign out</a>
+                        <a class="nav-link" href="../db/admin_logout.php">Sign out</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
         <div class="jumbotron" style="background-color: gray">
             <div class="container">
                 <h1>Welcome to HomeEscapes online estate catalogue</h1>
-                <p class="lead">This site has been made using PHP with MYSQL (procedure functions)!</p>
+                <p class="lead">This site has been made using PHP with MYSQL (procedure ../db)!</p>
                 <p>The layout use Bootstrap to make it more responsive. It's just a simple web!</p>
             </div>
         </div>

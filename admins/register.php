@@ -1,12 +1,12 @@
 <?php
 $title = "Register";
-require_once "./components/template/admin_header.php";
+require_once "../includes/admin_header.php";
 
 if (isset($_POST["submit"])) {
     if ($_POST['password'] !== $_POST['confirmpassword']) {
         header("Location: register.php?message=Password do not match");
     } else {
-        include_once './functions/auth.php';
+        include_once './../db/auth.php';
         $obj = new User();
         $res = $obj->register($_POST);
         if ($res == true) {
@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
 
 <div class="card" style="width: 30rem; margin: 20px auto;">
     <?php
-    require_once "./components/template/sidebar.php";
+    require_once "../includes/sidebar.php";
     ?>
     <div class="card-body">
         <h5 class="card-title">Register</h5>
@@ -59,5 +59,5 @@ if (isset($_POST["submit"])) {
 </div>
 
 <?php
-require_once "./components/template/footer.php";
+require_once "../includes/footer.php";
 ?>

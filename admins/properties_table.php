@@ -1,6 +1,6 @@
 <?php
 $title = "Properties";
-require_once "./components/template/admin_header.php";
+require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
 ?>
@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
     <div class="container-fluid">
         <div class="row">
             <?php
-            require_once "./components/template/sidebar.php";
+            require_once "../includes/sidebar.php";
             ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="row" style="margin: 20px;">
@@ -42,7 +42,7 @@ if (isset($_SESSION['email'])) {
                             <th>Actions</th>
                         </tr>
                         <?php
-                        include_once './functions/property.php';
+                        include_once './../db/property.php';
                         $obj = new Property();
                         $res = $obj->getProperties();
 
@@ -52,7 +52,7 @@ if (isset($_SESSION['email'])) {
 
                             if ($res->num_rows > 0) {
                                 while ($row = $res->fetch_assoc()) {
-                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['location'] . "</td><td>" . $row['lotArea'] . "</td><td>" . $row['price'] . "</td><td>" . $row['propertyType'] . "</td><td>" . "<img src='functions/images/$row[image]' height=50/>" . "</td><td>" . "<a href='property.php?update=$row[id]' class='btn btn-primary mx-2' role='button'><i class='fas fa-edit'></i></a><a href='property.php?delete=$row[id]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['location'] . "</td><td>" . $row['lotArea'] . "</td><td>" . $row['price'] . "</td><td>" . $row['propertyType'] . "</td><td>" . "<img src='../db/images/$row[image]' height=50/>" . "</td><td>" . "<a href='property.php?update=$row[id]' class='btn btn-primary mx-2' role='button'><i class='fas fa-edit'></i></a><a href='property.php?delete=$row[id]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
                                 }
                             } else {
                                 echo "No results";
@@ -62,7 +62,7 @@ if (isset($_SESSION['email'])) {
 
                             if ($res->num_rows > 0) {
                                 while ($row = $res->fetch_assoc()) {
-                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['location'] . "</td><td>" . $row['lotArea'] . "</td><td>" . $row['price'] . "</td><td>" . $row['propertyType'] . "</td><td>" . "<img src='functions/images/$row[image]' height=50/>" . "</td><td>" . "<a href='property.php?update=$row[id]' class='btn btn-primary mx-2' role='button'><i class='fas fa-edit'></i></a><a href='property.php?delete=$row[id]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['location'] . "</td><td>" . $row['lotArea'] . "</td><td>" . $row['price'] . "</td><td>" . $row['propertyType'] . "</td><td>" . "<img src='../db/images/$row[image]' height=50/>" . "</td><td>" . "<a href='property.php?update=$row[id]' class='btn btn-primary mx-2' role='button'><i class='fas fa-edit'></i></a><a href='property.php?delete=$row[id]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
                                 }
                             } else {
                                 echo "No results";
@@ -73,7 +73,7 @@ if (isset($_SESSION['email'])) {
 
                             if ($res->num_rows > 0) {
                                 while ($row = $res->fetch_assoc()) {
-                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['location'] . "</td><td>" . $row['lotArea'] . "</td><td>" . $row['price'] . "</td><td>" . $row['propertyType'] . "</td><td>" . "<img src='functions/images/$row[image]' height=50/>" . "</td><td>" . "<a href='property.php?update=$row[id]' class='btn btn-primary mx-2' role='button'><i class='fas fa-edit'></i></a><a href='property.php?delete=$row[id]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
+                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['location'] . "</td><td>" . $row['lotArea'] . "</td><td>" . $row['price'] . "</td><td>" . $row['propertyType'] . "</td><td>" . "<img src='../db/images/$row[image]' height=50/>" . "</td><td>" . "<a href='property.php?update=$row[id]' class='btn btn-primary mx-2' role='button'><i class='fas fa-edit'></i></a><a href='property.php?delete=$row[id]' class='btn btn-danger mx-2' role='button'><i class='fas fa-trash-alt'></i></a>" . "</td></tr>";
                                 }
                             } else {
                                 echo "No results";
@@ -86,7 +86,7 @@ if (isset($_SESSION['email'])) {
     </div>
 <?php
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

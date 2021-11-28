@@ -1,5 +1,5 @@
 .site-content {
-    background-image: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.5)), url('../functions/images/residence.jpg');
+    background-image: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.5)), url('../../db/images/residence.jpg');
     background-attachment: local;
     background-size: cover;
     text-align: center;
@@ -68,8 +68,6 @@
     margin-right: auto;
 }
 
-
-
 .last-text {
     padding-top: 90px;
     margin-left: 70px;
@@ -78,24 +76,23 @@
     color: gray;
 }
 
-.rectangle{
+.rectangle {
     background-color: #040B1C;
-    height: 5px; 
+    height: 5px;
     width: auto;
 }
 
-.rectangle3{
+.rectangle3 {
     background-color: #040B1C;
-    height: 5px; 
+    height: 5px;
     width: auto;
 }
 
-.rectangle2{
+.rectangle2 {
     background-color: #c8d8ff;
-    height: 200px; 
+    height: 200px;
     width: 900px;
-    z-index:-10;
+    z-index: -10;
     margin: auto;
     position: absolute;
-
 }

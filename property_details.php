@@ -1,7 +1,7 @@
 <?php
-$title = "hehehe title";
-require_once "./components/template/header.php";
-include_once "./functions/property.php";
+$title = "heheh.e title";
+require_once "./includes/header.php";
+include_once "./db/property.php";
 
 
 if (isset($_GET['id'])) {
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="functions/images/download.jpeg" alt="..." /></div>
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="../db/images/download.jpeg" alt="..." /></div>
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder">Payamansion Property</h1>
                     <div class="fs-5 mb-5">
@@ -60,7 +60,7 @@ if (isset($_GET['id'])) {
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="functions/images/download.jpeg" alt="..." />
+                        <img class="card-img-top" src="../db/images/download.jpeg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="functions/images/download.jpeg" alt="..." />
+                        <img class="card-img-top" src="../db/images/download.jpeg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -111,7 +111,7 @@ if (isset($_GET['id'])) {
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="functions/images/download.jpeg" alt="..." />
+                        <img class="card-img-top" src="../db/images/download.jpeg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -131,7 +131,7 @@ if (isset($_GET['id'])) {
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="functions/images/download.jpeg" alt="..." />
+                        <img class="card-img-top" src="../db/images/download.jpeg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -163,12 +163,10 @@ if (isset($_GET['id'])) {
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="./js/scripts.js"></script>
+    <script src="./../assets/js/scripts.js"></script>
 </body>
 
 </html>
-
-
 <?php
-require_once "./components/template/footer.php";
+require_once "./includes/footer.php";
 ?>

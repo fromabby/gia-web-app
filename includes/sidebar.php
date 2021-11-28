@@ -103,8 +103,8 @@ if (isset($_SESSION['email'])) {
                 <a href="register.php">Register</a>
                 <a href="user_table.php">Users List</a>
             </div>
-            <a href="admin_logout.php">Sign out</a>
-            <a href="home.php">Back to Home</a>
+            <a href="../db/admin_logout.php">Sign out</a>
+            <a href="../index.php">Back to Home</a>
         </div>
         <script>
             var dropdown = document.getElementsByClassName("dropdown-btn");

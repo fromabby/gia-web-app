@@ -56,14 +56,14 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-            <img src="functions/images/logo.png" alt="" width="22" height="20" class="d-inline-block align-text-top" style="margin-right: 10px">
-            <a class="navbar-brand" href="home.php">GIA Homes</a>
+            <img src="./db/images/logo.png" alt="" width="22" height="20" class="d-inline-block align-text-top" style="margin-right: 10px">
+            <a class="navbar-brand" href="index.php">GIA Homes</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogue.php">Catalogue</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="contactus.php">Contact Us</a></li>
                 </ul>
@@ -72,7 +72,7 @@
                 if (isset($_SESSION['email'])) {
                 ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">
-                        <li class="d-flex nav-item"><a class="nav-link dashboard active" aria-current="page" href="dashboard.php" style="color: white;">Dashboard</a></li>
+                        <li class="d-flex nav-item"><a class="nav-link dashboard active" aria-current="page" href="admins/dashboard.php" style="color: white;">Dashboard</a></li>
                     </ul>
                 <?php } else { ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">

@@ -1,6 +1,6 @@
 <?php
 $title = "Users";
-require_once "./components/template/admin_header.php";
+require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
 ?>
@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
     <div class="container-fluid">
         <div class="row">
             <?php
-            require_once "./components/template/sidebar.php";
+            require_once "../includes/sidebar.php";
             ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="row" style="margin: 20px;">
@@ -35,7 +35,7 @@ if (isset($_SESSION['email'])) {
                             <th>Actions</th>
                         </tr>
                         <?php
-                        include_once './functions/auth.php';
+                        include_once './../db/auth.php';
                         $obj = new User();
                         $res = $obj->getUsers();
 
@@ -79,7 +79,7 @@ if (isset($_SESSION['email'])) {
     </div>
 <?php
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

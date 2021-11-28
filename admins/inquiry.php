@@ -1,6 +1,6 @@
 <?php
-include_once './functions/inquiry.php';
-require_once "./components/template/admin_header.php";
+include_once './../db/inquiry.php';
+require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
     $obj = new Inquiry();
@@ -28,7 +28,7 @@ if (isset($_SESSION['email'])) {
     <div class="container-fluid">
         <div class="row">
             <?php
-            require_once "./components/template/sidebar.php";
+            require_once "../includes/sidebar.php";
             ?>
 
             <div class="card" style="width: 30rem; margin: 20px auto;">
@@ -74,7 +74,7 @@ if (isset($_SESSION['email'])) {
     </div>
 <?php
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>

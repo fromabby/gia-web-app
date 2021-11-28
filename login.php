@@ -1,12 +1,9 @@
 <?php
 $title = "Login";
-require_once "./components/template/header.php";
+require_once "./includes/header.php";
 
 if (!isset($_SESSION['email'])) {
 ?>
-<<<<<<< Updated upstream
-<div class="card" style="width: 20rem; margin: 50px auto;">
-=======
 
 <style>
     .card-header{
@@ -35,7 +32,6 @@ if (!isset($_SESSION['email'])) {
 
 <div class="rectangle"></div>
     <div class="card shadow" style="width: 20rem; margin: 20px auto; margin-top: 35px;">
->>>>>>> Stashed changes
         <div class="card-body">
             <h4 class="card-header">Admin Login</h4>
 
@@ -43,7 +39,7 @@ if (!isset($_SESSION['email'])) {
                 <p class="error"><?php echo $_GET['error']; ?></p>
             <?php } ?>
 
-            <form class="form-horizontal mt-3" method="post" action="admin_verify.php">
+            <form class="form-horizontal mt-3" method="post" action="./db/admin_verify.php">
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="floatingInput" placeholder="example@domain.com" name="email">
                     <label for="floatingInput">Email</label>
@@ -60,8 +56,8 @@ if (!isset($_SESSION['email'])) {
 
 <?php
 } else {
-    header("Location: dashboard.php");
+    header("Location: admins/dashboard.php");
 }
 
-require_once "./components/template/footer.php";
+require_once "./includes/footer.php";
 ?>
