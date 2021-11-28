@@ -1,9 +1,9 @@
 <?php
     $title = "Home";
-    require_once "./includes/header.php";
+    require_once "../includes/header.php";
 ?>
 <head>
-    <link href="./assets/css/home.css" rel="stylesheet">
+    <link href="../assets/css/home.css" rel="stylesheet">
 </head>
 
 <div class="rectangle"></div>
@@ -12,7 +12,7 @@
         <div class="d-flex flex-column">
             <h1 class="site-title">Choose your home.</h1>
             <h6 class="site-desc">Home is where the heart is.</h6>
-            <a href="contactus.php"><button class="btn shadow home-btn">Contact us</button></a>
+            <a href="../contactus.php"><button class="btn shadow home-btn">Contact us</button></a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
         <div class="col col-12 col-sm-12 col-md-4">
             <div class="text-center" style="margin: 20px auto; height: 40vh; width: 90%">
                 <div class="card shadow text-center">
-                    <img class="service-icons align-items-center" src="db/images/real-estate.png" alt="...">
+                    <img class="service-icons align-items-center" src="../db/images/real-estate.png" alt="...">
                     <div class="card-body">
                         <h4 class="card-title">Buy a home</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -36,7 +36,7 @@
         <div class="col col-12 col-sm-12 col-md-4">
             <div class="text-center" style="margin: 20px auto; height: 40vh; width: 90%">
                 <div class="card shadow text-center">
-                <img class="service-icons align-items-center" src="db/images/sell.png" alt="...">
+                <img class="service-icons align-items-center" src="../db/images/sell.png" alt="...">
                     <div class="card-body">
                         <h4 class="card-title">Sell a home</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -48,7 +48,7 @@
         <div class="col col-12 col-sm-12 col-md-4">
             <div class="text-center" style="margin: 20px auto; height: 40vh; width: 90%">
                 <div class="card shadow text-center">
-                <img class="service-icons align-items-center" src="db/images/search1.png" alt="...">
+                <img class="service-icons align-items-center" src="../db/images/search1.png" alt="...">
                     <div class="card-body">
                         <h4 class="card-title">Rent a home</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -67,5 +67,5 @@
 </div>
 <div class="rectangle"></div>
 <?php
-	require_once "./includes/footer.php";
+	require_once "../includes/footer.php";
 ?>
