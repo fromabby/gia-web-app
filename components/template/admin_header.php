@@ -34,7 +34,7 @@
                 <a class="navbar-brand" href="home.php">
                     <img src="functions/images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
 
-                    GIA Homes</a>
+                    GIA Homes Dashboard</a>
                 <ul class="navbar-nav px-3">
                     <li class="nav-item text-nowrap">
                         <a class="nav-link" href="admin_logout.php">Sign out</a>
