@@ -14,12 +14,20 @@ if (isset($_SESSION['email'])) {
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h2">Hello, <?php echo $_SESSION['email']; ?>!</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group mr-2">
-                            <!-- <a class="btn btn-primary" role="button" href="new_property.php">Create New Property</a>
-                            <a class="btn btn-primary" role="button" href="properties_table.php">List Property</a>
-                            <a class="btn btn-primary" role="button" href="inquiries_table.php">List Inquiries</a>
-                            <a class="btn btn-primary" role="button" href="admin_logout.php">Logout</a> -->
-                        </div>
+                        <?php
+                        if (isset($_GET['message'])) {
+                        ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $_GET['message']; ?>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        if (isset($_GET['error'])) {
+                        ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $_GET['error']; ?>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="my-4">

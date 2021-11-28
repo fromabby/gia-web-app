@@ -8,9 +8,9 @@ if (isset($_SESSION['email'])) {
         $id = $_GET['delete'];
         $del = $obj->deleteInquiry($id);
         if ($del) {
-            header("Location: inquiries_table.php");
+            header("Location: inquiries_table.php?message=Inquiry deleted successfully.");
         } else {
-            echo "Error";
+            header("Location: inquiries_table.php?error=Inquiry cannot be deleted.");
         }
     }
 
@@ -30,15 +30,23 @@ if (isset($_SESSION['email'])) {
             <?php
             require_once "../includes/sidebar.php";
             ?>
-
             <div class="card" style="width: 30rem; margin: 20px auto;">
                 <div class="card-body">
-                    <h5 class="card-title">Inquiry Details</h5>
                     <?php
                     if (isset($_GET['message'])) {
                     ?>
-                        <p class="message"><?php echo $_GET['message']; ?></p>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $_GET['message']; ?>
+                        </div>
                     <?php } ?>
+                    <?php
+                    if (isset($_GET['error'])) {
+                    ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $_GET['error']; ?>
+                        </div>
+                    <?php } ?>
+                    <h5 class="card-title">Inquiry Details</h5>
                     <form action="" method="post">
                         <div class="form-group pb-3">
                             <label>Name</label>

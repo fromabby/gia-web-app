@@ -4,15 +4,15 @@ require_once "../includes/admin_header.php";
 
 if (isset($_POST["submit"])) {
     if ($_POST['password'] !== $_POST['confirmpassword']) {
-        header("Location: register.php?message=Password do not match");
+        header("Location: register.php?error=Password do not match.");
     } else {
         include_once './../db/auth.php';
         $obj = new User();
         $res = $obj->register($_POST);
         if ($res == true) {
-            header("Location: register.php?message=Registered Successfully");
+            header("Location: register.php?message=Registered successfully");
         } else {
-            header("Location: register.php?message=Error");
+            header("Location: register.php?error=There was an error. Please try again.");
         }
     }
 }
@@ -23,12 +23,21 @@ if (isset($_POST["submit"])) {
     require_once "../includes/sidebar.php";
     ?>
     <div class="card-body">
-        <h5 class="card-title">Register</h5>
         <?php
         if (isset($_GET['message'])) {
         ?>
-            <p class="message"><?php echo $_GET['message']; ?></p>
+            <div class="alert alert-success" role="alert">
+                <?php echo $_GET['message']; ?>
+            </div>
         <?php } ?>
+        <?php
+        if (isset($_GET['error'])) {
+        ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $_GET['error']; ?>
+            </div>
+        <?php } ?>
+        <h5 class="card-title">Register</h5>
         <form action="" method="post">
             <div class="form-group pb-3">
                 <label>First Name</label>

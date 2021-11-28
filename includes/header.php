@@ -72,7 +72,7 @@
                 if (isset($_SESSION['email'])) {
                 ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">
-                        <li class="d-flex nav-item"><a class="nav-link dashboard active" aria-current="page" href="admins/dashboard.php" style="color: white;">Dashboard</a></li>
+                        <li class="d-flex nav-item"><a class="nav-link dashboard active" aria-current="page" href=admins/profile.php?view=<?php echo $_SESSION['email']; ?> style="color: white;">Dashboard</a></li>
                     </ul>
                 <?php } else { ?>
                     <ul class="navbar-nav mb-lg-0 d-flex">

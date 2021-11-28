@@ -31,7 +31,7 @@
     ?>
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="dashboard.php">
                     <img src="../db/images/logo.png" alt="" width="22" height="20" class="d-inline-block invert align-text-top" style="margin-right: 7px; margin-top: 5px;">
 
                     GIA Homes Dashboard</a>

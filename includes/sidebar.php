@@ -76,8 +76,6 @@ if (isset($_SESSION['email'])) {
 
         <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <!-- Our Custom CSS -->
-        <link rel="stylesheet" href="style4.css">
 
         <!-- Font Awesome JS -->
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -86,13 +84,12 @@ if (isset($_SESSION['email'])) {
 
     <body>
         <div class="sidenav">
-            <a href="dashboard.php">Dashboard</a>
             <a href=profile.php?view=<?php echo $email; ?>>My Profile</a>
             <button class="dropdown-btn">Properties
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="property.php?new=1">Create Property</a>
+                <a href="property.php?new=true">Create Property</a>
                 <a href="properties_table.php">Properties List</a>
             </div>
             <a href="inquiries_table.php">Inquiries</a>

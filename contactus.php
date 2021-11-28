@@ -1,27 +1,30 @@
 <?php
-    $title = "Contact Us";
-    require_once "./includes/header.php";
+$title = "Contact Us";
+require_once "./includes/header.php";
 
-    if (isset($_POST["submit"])) {
-        include_once './db/inquiry.php';
-        $obj = new Inquiry();
-        $res = $obj->contactUs($_POST);
-        if ($res == true) {
-            header("Location: contactus.php?message=Sent Successfully");
-        } else {
-            header("Location: contactus.php?message=Error");
-        }
+$success = "Sent successfully!";
+$error = "There was an error. Please try again.";
+
+if (isset($_POST["submit"])) {
+    include_once './db/inquiry.php';
+    $obj = new Inquiry();
+    $res = $obj->contactUs($_POST);
+    if ($res == true) {
+        header("Location: contactus.php?message=$success");
+    } else {
+        header("Location: contactus.php?error=$error");
     }
+}
 ?>
 
 <style>
-    .rectangle{
+    .rectangle {
         background-color: #040B1C;
-        height: 5px; 
+        height: 5px;
         width: auto;
     }
 
-    .card-header{
+    .card-header {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: bold;
         margin-bottom: 20px;
@@ -29,7 +32,7 @@
         background-color: #c8d8ff;
     }
 
-    label{
+    label {
         font-weight: bold;
     }
 
@@ -41,6 +44,7 @@
         font-weight: bold;
         margin-bottom: 10px;
     }
+
     .footer {
         position: absolute;
         left: 0;
@@ -50,41 +54,49 @@
         color: white;
         background-color: #212529;
         text-align: center;
-        
+
     }
-    .textFooter{
+
+    .textFooter {
         padding-top: 20px;
-        align-items: flex-end  ;
+        align-items: flex-end;
         color: white;
 
     }
-
 </style>
 
 
 <div class="rectangle"></div>
 <div class="card shadow" style="width: 30rem; margin: 20px auto; margin-top: 35px; margin-bottom: 35px;">
     <div class="card-body">
-        <h4 class="card-header">Contact Us</h4>
-        
         <?php
         if (isset($_GET['message'])) {
         ?>
-            <p class="message"><?php echo $_GET['message']; ?></p>
+            <div class="alert alert-success" role="alert">
+                <?php echo $_GET['message']; ?>
+            </div>
         <?php } ?>
+        <?php
+        if (isset($_GET['error'])) {
+        ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $_GET['error']; ?>
+            </div>
+        <?php } ?>
+        <h4 class="card-header">Contact Us</h4>
         <form action="" method="post">
             <div class="form-group pb-3">
                 <label>Name</label>
                 <input type="text" class="form-control" placeholder="Juan G. Dela Cruz" name="fullName">
-            </div>    
-            <div class="form-group pb-3">  
+            </div>
+            <div class="form-group pb-3">
                 <label>Email address</label>
                 <input type="email" class="form-control" placeholder="name@example.com" name="email">
             </div>
             <div class="form-group pb-3">
                 <label>Contact Number</label>
                 <input type="text" class="form-control" placeholder="09xx-xxx-xxxx" name="contactNumber">
-            </div>    
+            </div>
             <div class="form-group pb-3">
                 <label>Concern Type</label>
                 <select class="form-control" name="concernType">
@@ -98,11 +110,11 @@
                 <label>Message</label>
                 <textarea class="form-control" rows="3" name="message"></textarea>
             </div>
-            <center><input type="submit" class="btn shadow home-btn" name="submit" value="Submit"/></center>   
+            <center><input type="submit" class="btn shadow home-btn" name="submit" value="Submit" /></center>
         </form>
     </div>
 </div>
 
 <?php
-    require_once "./includes/footer.php";
+require_once "./includes/footer.php";
 ?>

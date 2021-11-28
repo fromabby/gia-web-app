@@ -37,13 +37,13 @@ if (isset($_SESSION['email'])) {
             $obj = new User();
 
             if ($_POST['password'] !== $_POST['confirmpassword']) {
-                header("Location: profile.php?update=$useremail&message=Password do not match");
+                header("Location: profile.php?view=$useremail&message=Passwords do not match.");
             } else {
                 $res = $obj->updateUser($_POST);
                 if ($res == true) {
-                    header("Location: profile.php?update=$useremail&message=Updated Successfully");
+                    header("Location: profile.php?view=$useremail&message=Profile updated successfully!");
                 } else {
-                    header("Location: register.php?update=$useremail&message=Error");
+                    header("Location: register.php?view=$useremail&error=Error updating user.");
                 }
             }
         }
@@ -53,12 +53,21 @@ if (isset($_SESSION['email'])) {
         ?>
         <div class="card" style="width: 30rem; margin: 20px auto;">
             <div class="card-body">
-                <h5 class="card-title">Update Profile</h5>
                 <?php
                 if (isset($_GET['message'])) {
                 ?>
-                    <p class="message"><?php echo $_GET['message']; ?></p>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo $_GET['message']; ?>
+                    </div>
                 <?php } ?>
+                <?php
+                if (isset($_GET['error'])) {
+                ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $_GET['error']; ?>
+                    </div>
+                <?php } ?>
+                <h5 class="card-title">Update Profile</h5>                
                 <form action="" method="post">
                     <div class="form-group pb-3">
                         <label>First Name</label>
@@ -103,28 +112,38 @@ if (isset($_SESSION['email'])) {
             require_once "../includes/sidebar.php";
             ?>
             <style>
-                .form-group{
+                .form-group {
                     margin-bottom: 3px;
                 }
 
                 .card-body {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 20px;
-                
-            }
-            h4 {
-                padding-bottom: 14px;
-            }
+                    border-radius: 5px;
+                    background-color: #f2f2f2;
+                    padding: 20px;
+
+                }
+
+                h4 {
+                    padding-bottom: 14px;
+                }
             </style>
             <div class="card shadow" style="width: 30rem; margin: 20px auto;">
                 <div class="card-body">
-                    <h4>My Profile</h4>
                     <?php
                     if (isset($_GET['message'])) {
                     ?>
-                        <p class="message"><?php echo $_GET['message']; ?></p>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $_GET['message']; ?>
+                        </div>
                     <?php } ?>
+                    <?php
+                    if (isset($_GET['error'])) {
+                    ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $_GET['error']; ?>
+                        </div>
+                    <?php } ?>
+                    <h4>My Profile</h4>
                     <form action="" method="post">
                         <div class="form-group pb-3">
                             <label>First Name</label>
@@ -144,7 +163,7 @@ if (isset($_SESSION['email'])) {
             </div>
         <?php
         } else {
-            header("Location: profile.php?view=$email&message=Error");
+            header("Location: profile.php?view=$email&error=Cannot retrieve details from server.");
         ?>
             <div class="card" style="width: 30rem; margin: 20px auto;">
                 <div class="card-body">

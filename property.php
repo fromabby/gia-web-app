@@ -4,6 +4,15 @@ require_once "./includes/header.php";
 include_once "./db/property.php";
 
 $propObj = new Property();
+
+$name = "";
+$description = "";
+$location = "";
+$lotArea = "";
+$price = "";
+$propertyType = "";
+$image = "";
+
 if (isset($_GET['id'])) {
     $singRes = $propObj->displaySingleProperty($_GET['id']);
 
@@ -17,10 +26,8 @@ if (isset($_GET['id'])) {
     $image = $row['image'];
 
     $results = $propObj->getPropertiesOther($_GET['id']);
-}
-
+} 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +45,20 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-
+    <?php
+    if (isset($_GET['message'])) {
+    ?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $_GET['message']; ?>
+        </div>
+    <?php } ?>
+    <?php
+    if (isset($_GET['error'])) {
+    ?>
+        <div class="alert alert-danger" role="alert">
+            <?php echo $_GET['error']; ?>
+        </div>
+    <?php } else { ?>
     <!-- Product section-->
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -66,7 +86,6 @@ if (isset($_GET['id'])) {
         <div class="container px-4 px-lg-5 mt-5">
             <h2 class="fw-bolder mb-4">Related Properties</h2>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
                 <?php foreach ($results as $otherProp) { ?>
                     <div class="col mb-5">
                         <div class="card h-100">
@@ -101,5 +120,6 @@ if (isset($_GET['id'])) {
 
 </html>
 <?php
+    }
 require_once "./includes/footer.php";
 ?>

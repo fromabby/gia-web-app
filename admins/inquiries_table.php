@@ -4,7 +4,6 @@ require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
 ?>
-
     <div class="container-fluid">
         <div class="row">
             <?php

@@ -16,7 +16,7 @@ if (isset($_SESSION['email'])) {
         $id = $_GET['delete'];
         $del = $obj->deleteProperty($id);
         if ($del) {
-            header("Location: properties_table.php");
+            header("Location: properties_table.php?message=Property deleted successfully.");
         } else {
             echo "Error";
         }
@@ -42,14 +42,14 @@ if (isset($_SESSION['email'])) {
                 // path to store the uploaded image
                 $target = "./../db/images/" . basename($_FILES['image']['name']);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                    header("Location: properties_table.php");
+                    header("Location: properties_table.php?message=Property updated successfully.");
                 } else {
-                    $error = "There was a problem";
+                    $error = "There was an error. Please try again.";
                 }
             } else {
                 $res = $obj->updatePropertyWithoutImage($_POST);
                 
-                header("Location: properties_table.php");
+                header("Location: properties_table.php?message=Property updated successfully.");
             }
         }
 
@@ -97,8 +97,19 @@ if (isset($_SESSION['email'])) {
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="container form-container">
                         <h1>Update Property</h1>
-                        <?php if (isset($_GET['error'])) { ?>
-                            <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php
+                        if (isset($_GET['message'])) {
+                        ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $_GET['message']; ?>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        if (isset($_GET['error'])) {
+                        ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $_GET['error']; ?>
+                            </div>
                         <?php } ?>
                         <form action="" method="post" enctype="multipart/form-data">
                             <label for="name">Property Name</label>
@@ -159,9 +170,9 @@ if (isset($_SESSION['email'])) {
             // path to store the uploaded image
             $target = "./../db/images/" . basename($_FILES['image']['name']);
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                header("Location: properties_table.php");
+                header("Location: properties_table.php?message=Property created successfully.");
             } else {
-                header("Location: property.php?new=?error=There is an error");
+                header("Location: property.php?error=There was an error. Cannot create new property.");
             }
         }
     ?>
@@ -217,9 +228,19 @@ if (isset($_SESSION['email'])) {
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="container shadow form-container">
                         <h4>Create new property</h4>
-
-                        <?php if (isset($_GET['error'])) { ?>
-                            <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php
+                        if (isset($_GET['message'])) {
+                        ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $_GET['message']; ?>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        if (isset($_GET['error'])) {
+                        ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $_GET['error']; ?>
+                            </div>
                         <?php } ?>
                         <form action="" method="post" enctype="multipart/form-data">
                             <label for="name">Property Name</label>

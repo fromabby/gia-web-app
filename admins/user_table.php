@@ -15,10 +15,25 @@ if (isset($_SESSION['email'])) {
             require_once "../includes/sidebar.php";
             ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <?php
+                if (isset($_GET['message'])) {
+                ?>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo $_GET['message']; ?>
+                    </div>
+                <?php } ?>
+                <?php
+                if (isset($_GET['error'])) {
+                ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $_GET['error']; ?>
+                    </div>
+                <?php } ?>
+                
                 <div class="row" style="margin: 20px;">
                     <h1>Users</h1>
                 </div>
-
+                
                 <div class="row" style="margin: 20px;">
 
                     <form action="" method="POST">

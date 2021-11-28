@@ -25,6 +25,7 @@ $obj = new Property();
 
 //store list of properties in variable
 $listProperty = $obj->getProperties();
+if($listProperty->num_rows > 0) {
 ?>
 
 <body>
@@ -42,7 +43,7 @@ $listProperty = $obj->getProperties();
                                     <p class="card-text"><?php echo $sheesh['description'] ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="property_details.php?id=<?php echo $sheesh['id'] ?>" class='btn btn-success mx-2' role='button'>View</a>
+                                            <a href="property.php?id=<?php echo $sheesh['id'] ?>" class='btn btn-success mx-2' role='button'>View</a>
                                         </div>
                                         <small class="text-muted"><?php echo $sheesh['propertyType'] ?></small>
                                     </div>
@@ -53,7 +54,6 @@ $listProperty = $obj->getProperties();
                 </div>
             </div>
         </div>
-
     </main>
 
     <!-- Bootstrap core JavaScript
@@ -66,14 +66,28 @@ $listProperty = $obj->getProperties();
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/holder.min.js"></script>
-
 </body>
 
 </html>
-
-
-
-
+<?php
+} else {
+?>
+<body>
+    <main role="main">
+        
+    </main>
+    <div class="alert alert-danger" role="alert">
+        No properties to be displayed.
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/holder.min.js"></script>
+</body>
+<?php }?>
 <?php
 require_once "./includes/footer.php";
 ?>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ".//db_conn.php";
+    include "./db_conn.php";
 
     if (isset($_POST['email']) && isset($_POST['password'])){
         function validate($data){
@@ -13,10 +13,10 @@
         $password = validate($_POST['password']);
         
         if(empty($email)){
-            header("Location: ../login.php?error=User name required");
+            header("Location: ../login.php?error=User name required.");
             exit();
         }else if(empty($password)){
-            header("Location: ../login.php?error=password required");
+            header("Location: ../login.php?error=Password required.");
             exit();
         }
         else{
@@ -26,11 +26,11 @@
                 $row = mysqli_fetch_assoc($result);
                 if($row['email'] === $email && $row['password'] === $password){
                     $_SESSION['email'] = $row['email'];
-                    header("Location: ../admins/dashboard.php");
+                    header("Location: ../admins/profile.php?view=$email&message=Logged in successfully.");
                  exit();
                 }
             }else{
-                header("Location: ../login.php?error=Invalid Login");
+                header("Location: ../login.php?error=Invalid credentials.");
                  exit();
             }
         }
