@@ -25,6 +25,10 @@
             $q = "SELECT * FROM property";
             return $this->mysqli->query($q);
         }
+        public function getPropertiesOther($id){
+            $q = "SELECT * FROM `property` WHERE `id` != $id";
+            return $this->mysqli->query($q);
+        }
         public function deleteProperty($id){
             $q = "DELETE FROM property WHERE id='$id'";
             return $this->mysqli->query($q);
@@ -65,6 +69,14 @@
                 $q = "SELECT * FROM property WHERE id='$id'";
             }
             
+            return $this->mysqli->query($q);
+        }
+
+        public function displaySingleProperty(){
+            if(isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $q = "SELECT * FROM property WHERE id='$id'";
+            }
             return $this->mysqli->query($q);
         }
     

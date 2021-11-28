@@ -21,12 +21,6 @@
         width: auto;
     }
 
-    .rectangle2{
-        background-color: #c8d8ff;
-        height: 5px; 
-        width: auto;
-    }
-
     .card-header{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: bold;
@@ -47,7 +41,26 @@
         font-weight: bold;
         margin-bottom: 10px;
     }
+    .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 70px;
+        color: white;
+        background-color: #212529;
+        text-align: center;
+        
+    }
+    .textFooter{
+        padding-top: 20px;
+        align-items: flex-end  ;
+        color: white;
+
+    }
+
 </style>
+
 
 <div class="rectangle"></div>
 <div class="card shadow" style="width: 30rem; margin: 20px auto; margin-top: 35px; margin-bottom: 35px;">
@@ -89,7 +102,7 @@
         </form>
     </div>
 </div>
-<div class="rectangle2"></div>
+
 <?php
     require_once "./components/template/footer.php";
 ?>
