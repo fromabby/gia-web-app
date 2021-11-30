@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
     }
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
@@ -56,13 +56,13 @@ if (isset($_POST["submit"])) {
         text-align: center;
 
     }
-
     .textFooter {
         padding-top: 20px;
         align-items: flex-end;
         color: white;
 
     }
+
 </style>
 
 
