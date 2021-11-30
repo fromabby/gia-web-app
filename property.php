@@ -102,7 +102,7 @@ if (isset($_GET['id'])) {
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="property_details.php?id=<?php echo $otherProp['id']; ?>"><i class="bi-house-fill me-1"></i>View Property</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="property.php?id=<?php echo $otherProp['id']; ?>"><i class="bi-house-fill me-1"></i>View Property</a></div>
                             </div>
                         </div>
                     </div>

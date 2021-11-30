@@ -67,8 +67,8 @@ if (isset($_POST["submit"])) {
 
 
 <div class="rectangle"></div>
-<div class="card shadow" style="width: 30rem; margin: 20px auto; margin-top: 35px; margin-bottom: 35px;">
-    <div class="card-body">
+<div class="card shadow" style="width: 30rem; margin: 20px auto; margin-top: 35px; margin-bottom: 100px;">
+    <div class="card-body" style="margin-bottom: 20px;">
         <?php
         if (isset($_GET['message'])) {
         ?>

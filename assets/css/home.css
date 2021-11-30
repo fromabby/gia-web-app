@@ -59,7 +59,7 @@
 
 .card {
     padding: 0px 10px 0px 10px;
-    z-index: 10;
+    /* z-index: 10; */
 }
 
 .card-contain {
