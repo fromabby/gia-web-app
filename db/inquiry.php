@@ -1,5 +1,5 @@
 <?php
-    include "db_conn.php";
+   
 
     abstract class BaseInquiry{
        public abstract function getInquiries();
