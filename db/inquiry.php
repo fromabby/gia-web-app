@@ -1,10 +1,8 @@
 <?php
     include "db_conn.php";
-    
-    class BaseInquiry{
-        function getInquiries(){
-            echo "This is where all the inquiries are";
-        }
+
+    abstract class BaseInquiry{
+       public abstract function getInquiries();
     }
     class Inquiry extends BaseInquiry{
         // Remote database connection
