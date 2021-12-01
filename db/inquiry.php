@@ -1,5 +1,6 @@
 <?php
     include "db_conn.php";
+    
     class BaseInquiry{
         function getInquiries(){
             echo "This is where all the inquiries are";
