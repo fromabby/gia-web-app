@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
     }
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
@@ -56,19 +56,19 @@ if (isset($_POST["submit"])) {
         text-align: center;
 
     }
-
     .textFooter {
         padding-top: 20px;
         align-items: flex-end;
         color: white;
 
     }
+
 </style>
 
 
 <div class="rectangle"></div>
-<div class="card shadow" style="width: 30rem; margin: 20px auto; margin-top: 35px; margin-bottom: 35px;">
-    <div class="card-body">
+<div class="card shadow" style="width: 30rem; margin: 20px auto; margin-top: 35px; margin-bottom: 100px;">
+    <div class="card-body" style="margin-bottom: 20px;">
         <?php
         if (isset($_GET['message'])) {
         ?>
