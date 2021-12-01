@@ -1,6 +1,11 @@
 <?php
     include "db_conn.php";
-    class Inquiry{
+    class BaseInquiry{
+        function getInquiries(){
+            echo "This is where all the inquiries are";
+        }
+    }
+    class Inquiry extends BaseInquiry{
         // Remote database connection
         private $host="remotemysql.com";
         private $user = "oVdipl3Crx";

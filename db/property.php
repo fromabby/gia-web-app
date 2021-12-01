@@ -1,5 +1,10 @@
 <?php
-    class Property{
+class BaseProperty{
+    function getProperties(){
+        echo "This is all the properties available";
+    }
+}
+    class Property extends BaseProperty{
         // Remote database connection
         private $host="remotemysql.com";
         private $user = "oVdipl3Crx";
