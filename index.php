@@ -25,9 +25,23 @@
 </div>
 <div class="pad">
 <div class="rectangle"></div>
+<div class="container-fluid secondSection">
+    <div class="row align-items-start">
+        <div class="col">
+            <h6>WHAT WE DO</h6>
+            <h3>GIA Homes is the Philippines’ leading innovative real estate developer.</h3>
+            <h5>GIA Homes offers a vibrant portfolio of groundbreaking 
+            real estate developments that provides upscale living and working spaces within 
+            various thriving and emerging growth centers around the country.</h5>
+        </div>
+        <div class="col"><img class="img-fluid" src="db/images/company.jpg"></div>
+    </div>   
+</div>
+<div class="rectangle"></div>
+<div class="firstSection">
 <h2 class="title text-center">See GIA Homes properties</h2>
     <div class="row align-items-center card-contain center">
-        <div class="rectangle2"></div>
+        
         <?php 
         $x = 3;
         while($x != 0 && $row = $listProperty->fetch_assoc()) {
@@ -47,6 +61,52 @@
         } 
         ?>
     </div>
+
+    </div>
+<div class="container-fluid fourthSection">
+    <div class="row align-items-start">
+        <div class="col">
+        <h3>Our Mission</h3>
+        </br></br></br></br>
+        <h3>Our Vision</h3>
+        </div>
+        <div class="col-10">
+            
+        <h5>We strive to elevate our customers’ quality of life through innovative real estate solutions 
+                in vibrant growth centers all over the country. We act responsibly with integrity, accountability 
+                and total commitment. We achieve excellence through passion, focus and foresight.</h5>
+                </br></br>
+           
+            <h5>We are the Philippines' leading innovative real estate developer serving the upscale market.</h5>
+   
+        </div>
+            
+             </div>
+</div>
+<div class="container-fluid thirdSection">
+    <h3>Our Workspace Portfolio</h3>
+    <div class="row cent align-items-start">
+        <div class="col">
+            <h1>16,643</h1>
+            <h5>Workstations</h5>
+        </div>
+        <div class="col">
+            <h1>30+</h1>
+            <h5>Office Locations</h5>
+        </div>
+        <div class="col">
+            
+            <h1>51</h1>
+            <h5>Managed Floors</h5>
+        </div>
+        <div class="col">
+        <h1>88,742 SQM</h1>
+            <h5>Total Workspace</h5p>
+        </div>
+    </div>
+</div>
+
+
     <div class="last-text">
         
     <center><p> GIA Homes is committed to giving our customers a secure and lasting agreements regarding houses they are interested in buying, selling, or renting.digital accessibility for individuals with disabilities.  
