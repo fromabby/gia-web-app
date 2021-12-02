@@ -69,6 +69,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <img src="./db/images/logo.png" alt="" width="22" height="20" class="d-inline-block align-text-top" style="margin-right: 10px">
@@ -77,11 +78,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogue.php">Catalogue</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="contactus.php">Contact Us</a></li>
+                
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="aboutus.php">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogue.php">CATALOGUE</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="contactus.php">CONTACT US</a></li>
+                    </center>
                 </ul>
+    
                 <?php
                 session_start();
                 if (isset($_SESSION['email'])) {

@@ -80,10 +80,11 @@
     background-color: #040B1C;
     height: 5px;
     width: auto;
+    
 }
 
 .rectangle2 {
-    background-color: #c8d8ff;
+    background-color: #c0cff5;
     height: 200px;
     width: 900px;
     z-index: -10;

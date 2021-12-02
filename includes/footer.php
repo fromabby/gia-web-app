@@ -1,9 +1,21 @@
-<footer class="footer">
-    <div class="textFooter">
+<style>
+.footer {
+  position: sticky;
+  right: 0;
+  bottom:-100;
+  left: 0;
+}
+
+</style>
+
+
+
+<div class="footer">
+    <div class="textFooter ">
         <small>Copyright &copy; GIA Homes</small>
     </div>
-</footer>
-</div> <!-- /container -->
+</div>
+ <!-- /container -->
 
 
 <!-- Bootstrap core JavaScript
