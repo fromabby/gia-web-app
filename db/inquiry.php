@@ -3,6 +3,9 @@
 
     abstract class BaseInquiry{
        public abstract function getInquiries();
+       public abstract function contactUs($data);
+       public abstract function deleteInquiry($id);
+       public abstract function getSingleInquiry($id);
     }
     class Inquiry extends BaseInquiry{
         // Remote database connection
