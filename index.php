@@ -3,9 +3,6 @@
     require_once "./includes/header.php";
 
     include_once "./db/property.php";
-    //object create
-    $obj = new Property();
-
     //store list of properties in variable
     $listProperty = $obj->getProperties();
 ?>

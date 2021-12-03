@@ -51,7 +51,6 @@ if (isset($_SESSION['email'])) {
                         </tr>
                         <?php
                         include_once './../db/auth.php';
-                        $obj = new User();
                         $res = $obj->getUsers();
 
                         if (isset($_POST['search'])) {

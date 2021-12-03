@@ -1,5 +1,6 @@
 <?php
-class BaseProperty{
+    include_once "db_conn.php";
+    class BaseProperty{
     function getProperties(){
         echo "This is all the properties available";
     }
@@ -12,14 +13,10 @@ class BaseProperty{
 }
     class Property extends BaseProperty{
         // Remote database connection
-        private $host="remotemysql.com";
-        private $user = "oVdipl3Crx";
-        private $pass = "BxCIgGaNf6";
-        private $db = "oVdipl3Crx";
-        public $mysqli;
-        public function __construct()
+        protected $mysqli;
+        public function __construct(DBConnection $conn)
         {
-            return $this->mysqli=new mysqli($this->host, $this->user, $this->pass, $this->db);
+            $this->mysqli = $conn->connectDb();
         }
         public function createProperty($data,$imageFile){
             $name = $data['name'];
@@ -96,4 +93,6 @@ class BaseProperty{
         }
     
     }
+
+    $obj = new Property($db);
 ?>

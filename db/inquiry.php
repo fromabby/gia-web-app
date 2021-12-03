@@ -1,6 +1,5 @@
 <?php
-   
-
+    include_once "db_conn.php";
     abstract class BaseInquiry{
        public abstract function getInquiries();
        public abstract function contactUs($data);
@@ -8,15 +7,10 @@
        public abstract function getSingleInquiry($id);
     }
     class Inquiry extends BaseInquiry{
-        // Remote database connection
-        private $host="remotemysql.com";
-        private $user = "oVdipl3Crx";
-        private $pass = "BxCIgGaNf6";
-        private $db = "oVdipl3Crx";
-        public $mysqli;
-        public function __construct()
+        protected $mysqli;
+        public function __construct(DBConnection $conn)
         {
-            return $this->mysqli=new mysqli($this->host, $this->user, $this->pass, $this->db);
+            $this->mysqli = $conn->connectDb();
         }
         public function contactUs($data){
             $fullName = $data['fullName'];
@@ -44,3 +38,5 @@
             return $this->mysqli->query($q);
         }
     }
+
+    $obj = new Inquiry($db);

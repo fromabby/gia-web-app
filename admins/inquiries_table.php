@@ -45,7 +45,6 @@ if (isset($_SESSION['email'])) {
                         </tr>
                         <?php
                         include_once './../db/inquiry.php';
-                        $obj = new Inquiry();
                         if (isset($_POST['search'])) {
                             $inquiryId = $_POST['id'];
                             $res = $obj->getSingleInquiry($inquiryId);

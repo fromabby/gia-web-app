@@ -7,7 +7,6 @@ if (isset($_POST["submit"])) {
         header("Location: register.php?error=Password do not match.");
     } else {
         include_once './../db/auth.php';
-        $obj = new User();
         $res = $obj->register($_POST);
         if ($res == true) {
             header("Location: register.php?message=Registered successfully");

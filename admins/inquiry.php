@@ -1,9 +1,9 @@
 <?php
+$title = "Inquiry Details";
 include_once './../db/inquiry.php';
 require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
-    $obj = new Inquiry();
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
         $del = $obj->deleteInquiry($id);
@@ -15,7 +15,6 @@ if (isset($_SESSION['email'])) {
     }
 
     if (isset($_GET['id'])) {
-        $title = "Inquiry Details";
         $singRes = $obj->getSingleInquiry($_GET['id']);
         $row = mysqli_fetch_assoc($singRes);
         $fullName = $row['fullName'];
@@ -66,6 +65,7 @@ if (isset($_SESSION['email'])) {
                                 <option value="" <?php echo ($concernType == "") ? "selected" : "" ?>>-</option>
                                 <option value="Inquiry" <?php echo ($concernType == "Inquiry") ? "selected" : "" ?>>Inquiry</option>
                                 <option value="Quotation" <?php echo ($concernType == "Quotation") ? "selected" : "" ?>>Quotation</option>
+                                <option value="Quotation" <?php echo ($concernType == "Book Viewing") ? "selected" : "" ?>>Book Viewing</option>
                                 <option value="Others" <?php echo ($concernType == "Others") ? "selected" : "" ?>>Others</option>
                             </select>
                         </div>

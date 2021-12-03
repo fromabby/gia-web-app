@@ -10,8 +10,6 @@ include_once './../db/property.php';
 require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
-    $obj = new Property();
-
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
         $del = $obj->deleteProperty($id);
@@ -35,8 +33,6 @@ if (isset($_SESSION['email'])) {
         $image = $row['image'];
         
         if (isset($_POST["update"])) {
-            $obj = new Property();
-
             if ($_FILES['image']['name'] !== "") {
                 $res = $obj->updateProperty($_POST, $_FILES);
                 // path to store the uploaded image

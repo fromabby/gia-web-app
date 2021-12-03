@@ -57,7 +57,6 @@ if (isset($_SESSION['email'])) {
                         </tr>
                         <?php
                         include_once './../db/property.php';
-                        $obj = new Property();
                         $res = $obj->getProperties();
 
                         if (isset($_POST['search'])) {

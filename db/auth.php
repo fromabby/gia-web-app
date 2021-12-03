@@ -2,15 +2,16 @@
     include "db_conn.php";
     class User{
         // Remote database connection
-        private $host="remotemysql.com";
-        private $user = "oVdipl3Crx";
-        private $pass = "BxCIgGaNf6";
-        private $db = "oVdipl3Crx";
-        public $mysqli;
-        
-        public function __construct()
+        protected $mysqli;
+        public function __construct(DBConnection $conn)
         {
-            return $this->mysqli=new mysqli($this->host, $this->user, $this->pass, $this->db);
+            $this->mysqli = $conn->connectDb();
+        }
+
+        public function login($email, $password) {
+            $q = "SELECT * FROM `users` WHERE email='$email' AND `password`='$password'";
+
+            return $this->mysqli->query(($q));
         }
         public function register($data){
             $firstName = $data['firstName'];
@@ -18,7 +19,7 @@
             $email = $data['email'];
             $password = $data['password'];
             
-            $q="insert into users set firstName='$firstName', lastName='$lastName', email='$email', password='$password'";
+            $q="INSERT INTO users SET firstName='$firstName', lastName='$lastName', email='$email', password='$password'";
             return $this->mysqli->query($q);
         }
 
@@ -33,7 +34,7 @@
             $lastName = $data['lastName'];
             $password = $data['password'];
             
-            $q="update `users` set firstName='$firstName', lastName='$lastName', password='$password' where email='$email'";
+            $q="UPDATE `users` SET firstName='$firstName', lastName='$lastName', password='$password' WHERE email='$email'";
             return $this->mysqli->query($q);
         }
 
@@ -47,3 +48,5 @@
             return $this->mysqli->query($q);
         }
     }
+
+    $obj = new User($db);

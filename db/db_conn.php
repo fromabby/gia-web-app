@@ -1,19 +1,36 @@
 <?php
     // For development
-    // $host="localhost";
-    // $user = "root";
-    // $pass = "";
-    // $db = "phpproject";
 
     // Remote database connection
-    $host="remotemysql.com";
-    $user = "oVdipl3Crx";
-    $pass = "BxCIgGaNf6";
-    $db = "oVdipl3Crx";
+    // $host="remotemysql.com";
+    // $user = "oVdipl3Crx";
+    // $pass = "BxCIgGaNf6";
+    // $db = "oVdipl3Crx";
 
-    $conn = mysqli_connect($host,$user,$pass,$db);
+    //local connection
+    // private $host="localhost";
+    // private $user = "root";
+    // private $pass = "";
+    // private $db = "phpproject";
 
-    if(!$conn){
-        echo "Connection failed";
+    class DBConnection {
+        protected $mysqli;
+        private $host="remotemysql.com";
+        private $user = "oVdipl3Crx";
+        private $pass = "BxCIgGaNf6";
+        private $db = "oVdipl3Crx";
+
+        public function __construct()
+        {
+            $this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->db);
+
+            return $this->mysqli;
+        }
+
+        public function connectDb() {
+            return $this->mysqli;
+        }
     }
+
+    $db = new DBConnection();
 ?>

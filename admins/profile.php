@@ -10,8 +10,6 @@ include_once './../db/auth.php';
 require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
-    $obj = new User();
-
     if (isset($_GET['delete'])) {
         $email = $_GET['delete'];
         $del = $obj->deleteUser($email);
@@ -34,8 +32,6 @@ if (isset($_SESSION['email'])) {
         $password = $row['password'];
 
         if (isset($_POST["update"])) {
-            $obj = new User();
-
             if ($_POST['password'] !== $_POST['confirmpassword']) {
                 header("Location: profile.php?view=$useremail&message=Passwords do not match.");
             } else {

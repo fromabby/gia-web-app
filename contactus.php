@@ -7,7 +7,6 @@ $error = "There was an error. Please try again.";
 
 if (isset($_POST["submit"])) {
     include_once './db/inquiry.php';
-    $obj = new Inquiry();
     $res = $obj->contactUs($_POST);
     if ($res == true) {
         header("Location: contactus.php?message=$success");
@@ -56,13 +55,13 @@ if (isset($_POST["submit"])) {
         text-align: center;
 
     }
+
     .textFooter {
         padding-top: 20px;
         align-items: flex-end;
         color: white;
 
     }
-
 </style>
 
 
@@ -100,15 +99,20 @@ if (isset($_POST["submit"])) {
             <div class="form-group pb-3">
                 <label>Concern Type</label>
                 <select class="form-control" name="concernType">
-                    <option value="">-</option>
-                    <option value="Inquiry">Inquiry</option>
-                    <option value="Quotation">Quotation</option>
-                    <option value="Others">Others</option>
+                    <?php $type = isset($_GET['type']) ? $_GET['type'] : '';?>
+                    <option value="" <?php echo ($type == '') ? "selected" : "";?>>-</option>
+                    <option value="Inquiry" <?php echo ($type == 'Inquiry') ? "selected" : "";?>>Inquiry</option>
+                    <option value="Quotation" <?php echo ($type == 'Quotation') ? "selected" : ""; ?>>Quotation</option>
+                    <option value="Book Viewing" <?php echo ($type == 'Book Viewing') ? "selected" : ""; ?>>Book Viewing</option>
+                    <option value="Others" <?php echo ($type == 'Others') ? "selected" : "";?>>Others</option>
                 </select>
             </div>
             <div class="form-group pb-3" name="message">
                 <label>Message</label>
-                <textarea class="form-control" rows="3" name="message"></textarea>
+                <textarea class="form-control" rows="3" name="message"><?php
+                                                                        $description = isset($_GET['description']) ? $_GET['description'] : '';
+                                                                        echo $description;
+                                                                        ?></textarea>
             </div>
             <center><input type="submit" class="btn shadow home-btn" name="submit" value="Submit" /></center>
         </form>
