@@ -21,6 +21,7 @@
             $propertyType= $data['propertyType'];
             $image = $imageFile['image']['name'];
 
+            // echo "<script>console.log('Debug Objects: " . $image . "' );</script>";
             $q="INSERT INTO property SET name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image'";
             // echo "console.log($q)";
 
