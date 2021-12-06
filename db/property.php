@@ -26,12 +26,12 @@
             return $this->mysqli->query($q);
         }
         public function getProperties(){
-            $q = "SELECT * FROM property";
+            $q = "SELECT * FROM property ORDER BY name ASC";
             return $this->mysqli->query($q);
         }
 
-        public function getPropertiesOther($id){
-            $q = "SELECT * FROM property WHERE id != '$id'";
+        public function getPropertiesOther($id, $propertyType){
+            $q = "SELECT * FROM property WHERE id != '$id' and propertyType='$propertyType'";
             return $this->mysqli->query($q);
         }
 
