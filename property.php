@@ -59,6 +59,7 @@ if (isset($_GET['id'])) {
                                 <h2>₱<?php echo $price; ?></h2>
                                 <p style="font-size: 16px">Lot area (sqm): <?php echo $lotArea; ?></p>
                                 <p style="font-size: 16px">Location: <?php echo $location; ?></p>
+                                <p style="font-size: 16px">Type: <?php echo $propertyType; ?></p>
                             </div>
                             <p class="lead" style="font-size: 16px"><?php echo $description; ?></p>
                             <div class="d-flex">
