@@ -4,12 +4,6 @@
     function getProperties(){
         echo "This is all the properties available";
     }
-    function createProperty($data, $imageFile){
-        echo "Property with data ($data) and image ($imageFile) created";
-    }
-    function deleteProperty($id){
-        echo "Property with id ($id) deleted";
-    }
 }
     class Property extends BaseProperty{
         // Remote database connection
