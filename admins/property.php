@@ -50,12 +50,12 @@ if (isset($_GET['update'])) {
 if (isset($_GET['new'])) {
     $title = "Add new property";
 }
-;
+
+include_once './../db/property.php';
 require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
     if (isset($_GET['delete'])) {
-        include_once './../db/property.php';
         $id = $_GET['delete'];
         $del = $obj->deleteProperty($id);
         if ($del) {
@@ -66,7 +66,6 @@ if (isset($_SESSION['email'])) {
     }
 
     if (isset($_GET['update'])) {
-        include_once './../db/property.php';
         $singRes = $obj->getSingleProperty();
         $row = mysqli_fetch_assoc($singRes);
         $name = $row['name'];
@@ -173,8 +172,6 @@ if (isset($_SESSION['email'])) {
 
     if (isset($_GET['new'])) {
         if (isset($_POST["submit"])) {
-            include_once './../db/property.php';
-
             $res = $obj->createProperty($_POST, $_FILES);
             // echo "console.log($res)";
             // echo "console.log('sent to db')";
