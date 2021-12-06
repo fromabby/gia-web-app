@@ -1,15 +1,9 @@
 <?php
     include_once "db_conn.php";
-    class BaseProperty{
-    function getProperties(){
-        echo "This is all the properties available";
-    }
-    function createProperty($data, $imageFile){
-        echo "Property with data ($data) and image ($imageFile) created";
-    }
-    function deleteProperty($id){
-        echo "Property with id ($id) deleted";
-    }
+    abstract class BaseProperty{
+    public abstract function getProperties();
+    public abstract function createProperty($data, $imageFile);
+    public abstract function deleteProperty($id);
 }
     class Property extends BaseProperty{
         // Remote database connection
