@@ -54,12 +54,12 @@ if (isset($_GET['id'])) {
                     <div class="row gx-4 gx-lg-5 align-items-center">
                         <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" height=600 src="./db/images/<?php echo $image; ?>" alt="<?php echo $image; ?>" /></div>
                         <div class="col-md-6">
-                            <h1 class="display-5 fw-bolder"><?php echo $name; ?></h1>
+                            <h1 class="display-5 fw-bolder"><?php echo $name; ?> <span style="font-size: 16px; color: gray;"><?php echo $propertyType; ?></span></h1>
+
                             <div class="fs-5 mb-5">
                                 <h2>₱<?php echo $price; ?></h2>
                                 <p style="font-size: 16px">Lot area (sqm): <?php echo $lotArea; ?></p>
                                 <p style="font-size: 16px">Location: <?php echo $location; ?></p>
-                                <p style="font-size: 16px">Type: <?php echo $propertyType; ?></p>
                             </div>
                             <p class="lead" style="font-size: 16px"><?php echo $description; ?></p>
                             <div class="d-flex">
@@ -71,6 +71,8 @@ if (isset($_GET['id'])) {
                                     </button>
                                 </a>
                             </div>
+                            <p style="padding-top: 50px;"><a href="./catalogue.php" style="text-decoration: none;">&#8249; Back to Properties</a>
+                                </a></p>
                         </div>
                     </div>
                 </div>
