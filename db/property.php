@@ -20,20 +20,19 @@
             $price = $data['price'];
             $propertyType= $data['propertyType'];
             $image = $imageFile['image']['name'];
-            // echo "console.log($data)";
 
             $q="INSERT INTO property SET name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image'";
-            echo "console.log($q)";
+            // echo "console.log($q)";
 
-            if($this->mysqli->query($q)) {
-                echo "console.log($q)";
+            // if($this->mysqli->query($q)) {
+            //     echo "console.log($q)";
 
-                echo "console.log($this->mysqli->error)";
+            //     echo "console.log($this->mysqli->error)";
 
-                return $this->mysqli->query($q);
-            } else {
-                echo "console.log($this->mysqli->error)";
-            }
+            //     return $this->mysqli->query($q);
+            // } else {
+            //     echo "console.log($this->mysqli->error)";
+            // }
             return $this->mysqli->query($q);
         }
         public function getProperties(){
