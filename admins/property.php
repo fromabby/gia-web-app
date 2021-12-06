@@ -1,3 +1,48 @@
+<style>
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: hsl(158, 100%, 16%);
+    }
+
+    .form-container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .container {
+        border-radius: 5px;
+
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    h4 {
+        padding-bottom: 14px;
+    }
+</style>
+
 <?php
 if (isset($_GET['update'])) {
     $title = "Update Property";
@@ -5,12 +50,12 @@ if (isset($_GET['update'])) {
 if (isset($_GET['new'])) {
     $title = "Add new property";
 }
-
-include_once './../db/property.php';
+;
 require_once "../includes/admin_header.php";
 
 if (isset($_SESSION['email'])) {
     if (isset($_GET['delete'])) {
+        include_once './../db/property.php';
         $id = $_GET['delete'];
         $del = $obj->deleteProperty($id);
         if ($del) {
@@ -21,7 +66,7 @@ if (isset($_SESSION['email'])) {
     }
 
     if (isset($_GET['update'])) {
-        $title = "Update Property";
+        include_once './../db/property.php';
         $singRes = $obj->getSingleProperty();
         $row = mysqli_fetch_assoc($singRes);
         $name = $row['name'];
@@ -31,7 +76,7 @@ if (isset($_SESSION['email'])) {
         $price = $row['price'];
         $propertyType = $row['propertyType'];
         $image = $row['image'];
-        
+
         if (isset($_POST["update"])) {
             if ($_FILES['image']['name'] !== "") {
                 $res = $obj->updateProperty($_POST, $_FILES);
@@ -44,47 +89,14 @@ if (isset($_SESSION['email'])) {
                 }
             } else {
                 $res = $obj->updatePropertyWithoutImage($_POST);
-                
+
                 header("Location: properties_table.php?message=Property updated successfully.");
             }
         }
 
 ?>
         <html>
-        <style>
-            input[type=text],
-            select,
-            textarea {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-                margin-top: 6px;
-                margin-bottom: 16px;
-                resize: vertical
-            }
-
-            input[type=submit] {
-                background-color: #04AA6D;
-                color: white;
-                padding: 12px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-            input[type=submit]:hover {
-                background-color: #45a049;
-            }
-
-            .form-container {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 20px;
-            }
-        </style>
-
+    
         <div class="container-fluid">
             <div class="row">
                 <?php
@@ -145,7 +157,7 @@ if (isset($_SESSION['email'])) {
                                         <input type="file" class="form-control-file" id="image" name="image">
                                     </div>
                                     <div>
-                                        <img src=<?php echo "../db/images/$row[image]"; ?> height=100 class="my-2"/>
+                                        <img src=<?php echo "../db/images/$row[image]"; ?> height=100 class="my-2" />
                                     </div>
                                 </div>
                                 <center><input type="submit" value="Update" name="update"></center>
@@ -160,62 +172,22 @@ if (isset($_SESSION['email'])) {
     }
 
     if (isset($_GET['new'])) {
-        $title = "New Property";
         if (isset($_POST["submit"])) {
+            include_once './../db/property.php';
+
             $res = $obj->createProperty($_POST, $_FILES);
+            echo "console.log($res)";
+            echo "console.log('sent to db')";
             // path to store the uploaded image
             $target = "./../db/images/" . basename($_FILES['image']['name']);
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target) && $res == true) {
                 header("Location: properties_table.php?message=Property created successfully.");
             } else {
                 header("Location: property.php?error=There was an error. Cannot create new property.");
             }
         }
     ?>
-        <style>
-            input[type=text],
-            select,
-            textarea {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-                margin-top: 6px;
-                margin-bottom: 16px;
-                resize: vertical
-            }
 
-            input[type=submit] {
-                background-color: #04AA6D;
-                color: white;
-                padding: 12px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-            input[type=submit]:hover {
-                background-color: hsl(158, 100%, 16%);
-            }
-
-            .form-container {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 20px;
-            }
-
-            .container {
-                border-radius: 5px;
-
-                margin-top: 30px;
-                margin-bottom: 50px;
-            }
-
-            h4 {
-                padding-bottom: 14px;
-            }
-        </style>
         <div class=" container-fluid">
             <div class="row">
                 <?php

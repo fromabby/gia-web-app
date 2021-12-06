@@ -19,7 +19,7 @@
             $concernType = $data['concernType'];
             $message = $data['message'];
 
-            $q="insert into inquiry set fullName='$fullName', email='$email', contactNumber='$contactNumber', concernType='$concernType', message='$message'";
+            $q="INSERT INTO inquiry SET fullName='$fullName', email='$email', contactNumber='$contactNumber', concernType='$concernType', message='$message'";
             return $this->mysqli->query($q);
         }
 

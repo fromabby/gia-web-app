@@ -26,8 +26,20 @@
             $price = $data['price'];
             $propertyType= $data['propertyType'];
             $image = $imageFile['image']['name'];
+            // echo "console.log($data)";
 
-            $q="insert into property set name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image'";
+            $q="INSERT INTO property SET name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image'";
+            echo "console.log($q)";
+
+            if($this->mysqli->query($q)) {
+                echo "console.log($q)";
+
+                echo "console.log($this->mysqli->error)";
+
+                return $this->mysqli->query($q);
+            } else {
+                echo "console.log($this->mysqli->error)";
+            }
             return $this->mysqli->query($q);
         }
         public function getProperties(){
@@ -55,7 +67,7 @@
             $propertyType= $data['propertyType'];
             $image = $imageFile['image']['name'];
 
-            $q="update `property` set id=$id,name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image' where id='$id'";
+            $q="UPDATE `property` SET id=$id,name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image' WHERE id='$id'";
             return $this->mysqli->query($q);
         }
 
@@ -68,7 +80,7 @@
             $price = $data['price'];
             $propertyType= $data['propertyType'];
 
-            $q="update `property` set id=$id,name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType' where id='$id'";
+            $q="UPDATE `property` SET id=$id,name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType' WHERE id='$id'";
             return $this->mysqli->query($q);
         }
 

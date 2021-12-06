@@ -33,7 +33,6 @@ if (isset($_SESSION['email'])) {
                     <h1>Properties</h1>
                 </div>
                 
-
                 <div class="row" style="margin: 20px;">
 
                     <form action="" method="POST">
