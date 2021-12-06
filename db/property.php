@@ -34,8 +34,6 @@
             if($this->mysqli->query($q)) {
                 echo "console.log($q)";
 
-                echo "console.log($this->mysqli->error)";
-
                 return $this->mysqli->query($q);
             } else {
                 echo "console.log($this->mysqli->error)";
