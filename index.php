@@ -45,10 +45,9 @@
                 echo "<div class='col col-12 col-sm-12 col-md-4'>" .
                 "<div class='text-center' style='margin: 20px auto; height: 40vh; width: 90%'>" .
                     "<div class='card shadow text-center'>" .
-                        "<img class='service-icons align-items-center' src=./db/images/" . $row['image'] .  " >" .
+                        "<img class='service-icons align-items-center' src=./db/images/" . $row['image'] .  " height=200 >" .
                         "<div class='card-body'>" .
                             "<h4 class='card-title'>" . $row['name'] . "</h4>" .
-                            "<p class='card-text'>" . $row['description'] . "</p>" .
                             "<a href='property.php?id=" . $row['id'] . "' class='btn home-btns'>View</a>" .
                         "</div>" .
                     "</div>" . 
