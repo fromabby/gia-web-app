@@ -173,9 +173,7 @@ if (isset($_SESSION['email'])) {
     if (isset($_GET['new'])) {
         if (isset($_POST["submit"])) {
             $res = $obj->createProperty($_POST, $_FILES);
-            // echo "console.log($res)";
-            // echo "console.log('sent to db')";
-            // // path to store the uploaded image
+            
             $target = "./../db/images/" . basename($_FILES['image']['name']);
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target) && $res == true) {
                 header("Location: properties_table.php?message=Property created successfully.");

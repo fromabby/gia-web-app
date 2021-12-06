@@ -1,10 +1,10 @@
 <?php
     include_once "db_conn.php";
-    class BaseProperty{
-    function getProperties(){
-        echo "This is all the properties available";
+    abstract class BaseProperty{
+        public abstract function getProperties();
+        public abstract function createProperty($data, $imageFile);
+        public abstract function deleteProperty($id);
     }
-}
     class Property extends BaseProperty{
         // Remote database connection
         protected $mysqli;
@@ -21,19 +21,8 @@
             $propertyType= $data['propertyType'];
             $image = $imageFile['image']['name'];
 
-            // echo "<script>console.log('Debug Objects: " . $image . "' );</script>";
             $q="INSERT INTO property SET name='$name', description='$description', location='$location', lotArea='$lotArea', price='$price', propertyType='$propertyType', image='$image'";
-            // echo "console.log($q)";
-
-            // if($this->mysqli->query($q)) {
-            //     echo "console.log($q)";
-
-            //     echo "console.log($this->mysqli->error)";
-
-            //     return $this->mysqli->query($q);
-            // } else {
-            //     echo "console.log($this->mysqli->error)";
-            // }
+        
             return $this->mysqli->query($q);
         }
         public function getProperties(){

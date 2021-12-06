@@ -33,18 +33,19 @@ if($listProperty->num_rows > 0) {
             <div class="container">
                 <div class="row">
                     <?php
-                    foreach ($listProperty as $sheesh) { ?>
+                    foreach ($listProperty as $item) { ?>
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top" src="./db/images/<?php echo $sheesh['image']; ?>" alt="<?php echo $sheesh['image']; ?>" height="200">
-                                <div class="fw-bolder" style="padding: 5px 0px 0px 13px"><h5><?php echo $sheesh['name'] ?></h5></div>
+                                <img class="card-img-top" src="./db/images/<?php echo $item['image']; ?>" alt="<?php echo $item['image']; ?>" height="200">
+                                <div class="fw-bolder" style="padding: 5px 0px 0px 13px"><h5><?php echo $item['name'] ?></h5></div>
                                 <div class="card-body" style="padding-top: 0px">
-                                    <p class="card-text"><?php echo $sheesh['description'] ?></p>
+                                    <p class="card-text"><?php echo $item['description'] ?></p>
+                                    <p class="card-text small-text" style="font-size: 10px; color: gray;">Location: <?php echo $item['location'] ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="property.php?id=<?php echo $sheesh['id'] ?>" class='btn btn-success mx-2' role='button'>View</a>
+                                            <a href="property.php?id=<?php echo $item['id'] ?>" class='btn btn-success mx-2' role='button'>View</a>
                                         </div>
-                                        <small class="text-muted"><?php echo $sheesh['propertyType'] ?></small>
+                                        <small class="text-muted"><?php echo $item['propertyType'] ?></small>
                                     </div>
                                 </div>
                             </div>

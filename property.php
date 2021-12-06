@@ -56,9 +56,11 @@ if (isset($_GET['id'])) {
                         <div class="col-md-6">
                             <h1 class="display-5 fw-bolder"><?php echo $name; ?></h1>
                             <div class="fs-5 mb-5">
-                                <span>₱ <?php echo $price; ?></span>
+                                <h2>₱<?php echo $price; ?></h2>
+                                <p style="font-size: 16px">Lot Area (sqm): <?php echo $lotArea; ?></p>
+                                <p style="font-size: 16px">Location: <?php echo $location; ?></p>
                             </div>
-                            <p class="lead"><?php echo $description; ?></p>
+                            <p class="lead" style="font-size: 16px"><?php echo $description; ?></p>
                             <div class="d-flex">
                                 <a href="./contactus.php?description=<?php
                                     echo "I would like to book a viewing for " . $name
