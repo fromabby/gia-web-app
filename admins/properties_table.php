@@ -32,13 +32,11 @@ if (isset($_SESSION['email'])) {
                 <div class="row" style="margin: 20px;">
                     <h1>Properties</h1>
                 </div>
-                
+
                 <div class="row" style="margin: 20px;">
 
                     <form action="" method="POST">
-                        <input type="text" name="id" placeholder="Enter ID" required value="<?php if (isset($_POST['id'])) {
-                                                                                                echo $_POST['id'];
-                                                                                            } ?>" />
+                        <input type="text" name="id" placeholder="Enter ID" required value="<?php if (isset($_POST['id'])) { echo $_POST['id'];} ?>" />
                         <input type="submit" name="search" value="Search">
                         <input type="submit" name="reset" value="Reset">
                     </form>
@@ -56,8 +54,6 @@ if (isset($_SESSION['email'])) {
                         </tr>
                         <?php
                         include_once './../db/property.php';
-                        $res = $obj->getProperties();
-
                         if (isset($_POST['search'])) {
                             $id = $_POST['id'];
                             $res = $obj->getSingleProperty($id);
